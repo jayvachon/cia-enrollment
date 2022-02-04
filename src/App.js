@@ -98,7 +98,11 @@ class App extends Component {
   }
 
   setLeadData(lead) {
-    this.setState({lead: lead})
+    if (lead.error) {
+      console.log(':(')
+    } else {
+      this.setState({lead: lead})
+    }
   }
 
   render() {

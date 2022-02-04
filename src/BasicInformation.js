@@ -3,12 +3,12 @@ import SSN from './items/SSN'
 import PhoneNumber from './items/PhoneNumber'
 import BirthDate from './items/BirthDate'
 import FirstName from './items/FirstName'
+import LastName from './items/LastName'
 import { reduxForm } from 'redux-form'
 import { updateLead } from './services/LeadService'
 import { SubmissionError } from 'redux-form'
 
 // <PhoneNumber lead={props.lead} onSubmitSuccess={this.setleadData}/>
-// <button type="submit" disabled={pristine || submitting}>Submit</button>
 
 let id = ''
 
@@ -51,11 +51,11 @@ const BasicInformation = props => {
 			<h2>Basic information</h2>
 			<form onSubmit={handleSubmit}>
 				<FirstName label="First Name" lead={props.lead} />
+				<LastName label="Last Name" lead={props.lead} />
 				<SSN label="Social Security Number" lead={props.lead} />
 				<PhoneNumber label="Phone Number" lead={props.lead} />
-				<BirthDate />
-				{error && <strong>{error}</strong>}
-				<button type="submit">Submit</button>
+				<BirthDate label="Date of Birth" lead={props.lead} />
+				<button type="submit" disabled={pristine || submitting}>Submit</button>
 			</form>
 		</section>
 	)

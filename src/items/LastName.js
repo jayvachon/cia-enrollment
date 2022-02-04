@@ -16,14 +16,14 @@ const renderField = ({ input, label, type, meta: { touched, error } }) => (
 	</div>
 )
 
-const FirstName = props => {
+const LastName = props => {
 	return (
 		<Item
-			type={props.lead.firstName}
+			type={props.lead.lastName}
 			label={props.label}>
 			<div>
 		        <Field 
-		        	name="firstName"
+		        	name="lastName"
 		        	label={props.label}
 		        	component={renderField}
 		        	validate={[lettersOnly]}/>
@@ -32,4 +32,4 @@ const FirstName = props => {
 	)
 }
 
-export default FirstName
+export default LastName
