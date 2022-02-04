@@ -27,11 +27,11 @@ const PhoneNumber = (props) => {
 	return (
 		<Item
 			type={props.lead.phone}
-			label="Phone Number">
+			label={props.label}>
 			<div>
 				<Field 
         	name='phone'
-        	label="Phone Number"
+        	label={props.label}
         	component={renderField}
         	validate={[length]}
           {...phoneMask} />
