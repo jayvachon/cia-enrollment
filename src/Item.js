@@ -10,7 +10,7 @@ const Item = (props) => {
 				</div>
 			}
 			{props.type &&
-				<p>{props.name} ✔</p>
+				<p>{props.label} ✔</p>
 			}
 		</div>
 	)

@@ -84,7 +84,7 @@ class App extends Component {
           "email": "jay.vachon@codeimmersives.com",
           "phone": "",//"9876541234",
           "lastName": "Mctest",
-          "firstName": "Test",
+          "firstName": "", //"Test",
           "dateAdded": "2022-01-24 19:00",
           "term": "Summer 2022",
           "course": "Associate of Science in Computer Science and Web Architecture",
@@ -114,6 +114,7 @@ class App extends Component {
               <p>Welcome back {this.state.lead.firstName}!</p>
               <BasicInformation 
                 lead={this.state.lead}
+                onSubmitSuccess={this.setLeadData}
               />
             </section>
           }

@@ -2,9 +2,15 @@ import React from 'react'
 import SSN from './items/SSN'
 import PhoneNumber from './items/PhoneNumber'
 import BirthDate from './items/BirthDate'
+import FirstName from './items/FirstName'
 import { reduxForm } from 'redux-form'
+import { updateLead } from './services/LeadService'
+import { SubmissionError } from 'redux-form'
 
 // <PhoneNumber lead={props.lead} onSubmitSuccess={this.setleadData}/>
+// <button type="submit" disabled={pristine || submitting}>Submit</button>
+
+let id = ''
 
 /*
 
@@ -25,16 +31,38 @@ Contains:
 
 */
 
-const BasicInformation = (props) => {
+const validate = values => {
+	const errors = {}
+	return errors
+}
+
+const onSubmit = async (values) => {
+	return await updateLead(id, values)
+}
+
+const BasicInformation = props => {
+
+	const {error, errors, handleSubmit, reset, pristine, submitting } = props
+
+	id = props.lead.id
+
 	return (
-		<form>
-			<SSN lead={props.lead} />
-			<PhoneNumber lead={props.lead} />
-			<BirthDate />
-		</form>
+		<section>
+			<h2>Basic information</h2>
+			<form onSubmit={handleSubmit}>
+				<FirstName label="First Name" lead={props.lead} />
+				<SSN label="Social Security Number" lead={props.lead} />
+				<PhoneNumber label="Phone Number" lead={props.lead} />
+				<BirthDate />
+				{error && <strong>{error}</strong>}
+				<button type="submit">Submit</button>
+			</form>
+		</section>
 	)
 }
 
 export default reduxForm({
-	form: 'basic-info'
+	form: 'basic-info',
+	validate,
+	onSubmit,
 })(BasicInformation)

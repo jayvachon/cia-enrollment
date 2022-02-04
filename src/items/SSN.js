@@ -1,24 +1,16 @@
 import React, { Component } from 'react'
-import Example from '../example'
 import { Field, reduxForm, formValueSelector } from 'redux-form'
 import { createNumberMask, createTextMask } from 'redux-form-input-masks'
-import { updateLead } from '../services/LeadService'
 import Item from '../Item'
-
-let state = {};
 
 const ssnMask = createTextMask({
 	pattern: '999-99-9999',
 	allowEmpty: true,
 });
 
-const submit = (props, value) => {
-	if (value.length === 9) {
-		return updateLead(state.lead.id, 'socialSecurityNumber', value);
-	} else {
-		return "Missing numbers"
-	}
-}
+const length = value => value && (value.length > 0 && value.length < 9)
+	? "Not enough numbers"
+	: undefined
 
 const renderField = ({ input, label, type, meta: { touched, error } }) => (
 	<div>
@@ -32,19 +24,17 @@ const renderField = ({ input, label, type, meta: { touched, error } }) => (
 
 const SSN = (props) => {
 
-	state.lead = props.lead;
-
 	return (
 		<Item
 			type={props.lead.socialSecurityNumber}
-			name="Social Security Number">
+			label="Social Security Number">
 			<div>
 		        <Field 
-		        	name='ssn'
+		        	name='socialSecurityNumber'
 		        	label="Social Security Number"
 		        	component={renderField}
-		        	onBlur={submit}
-		          {...ssnMask} />
+		        	validate={[length]}
+					{...ssnMask} />
 			</div>
 		</Item>
     )
