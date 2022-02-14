@@ -92,6 +92,11 @@ class App extends Component {
           "financialAid": "Other - veteran",
           "socialSecurityNumber": "",//"999999999",
           "id": "2200080442",
+          "educationLevel": '',
+          "street": '',
+          "city": '',
+          "state": '',
+          "zip": '',
       }
     }
 

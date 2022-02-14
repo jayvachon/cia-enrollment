@@ -7,27 +7,27 @@ import Item from '../Item'
 const renderDatePicker = ({input, label, placeholder, defaultValue, meta: {touched, error} }) => (
   <div>
   	<label>{label}</label>
-	<DatePicker
-		{...input}
-		autoOk={true}
-		selected={input.value || null}
-		onChange={input.onChange} />
+		<DatePicker
+			{...input}
+			autoOk={true}
+			selected={input.value || null}
+			onChange={input.onChange} />
       {touched && error && <span>{error}</span>}
   </div>
 );
 
-const BirthDate = (props) => {
+const GraduationDate = (props) => {
 	const [startDate, setStartDate] = useState(new Date());
 	return (
 		<Item
-			type={props.lead.dateOfBirth}
+			type={props.lead.graduationDate}
 			label={props.label}>
 			<Field
-				name="dateOfBirth"
+				name="graduationDate"
 				label={props.label}
 				component={renderDatePicker} />
 		</Item>
 	)
 }
 
-export default BirthDate
+export default GraduationDate

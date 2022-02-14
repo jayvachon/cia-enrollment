@@ -1,15 +1,13 @@
 import React, { Component } from 'react'
 import { Field, reduxForm, formValueSelector } from 'redux-form'
-import { createNumberMask, createTextMask } from 'redux-form-input-masks'
-import Item from '../Item'
+import Item from '../../Item'
 
-const ssnMask = createTextMask({
-	pattern: '999-99-9999',
-	allowEmpty: true,
-});
-
-const length = value => value && (value.length > 0 && value.length < 9)
+const minLength = value => value && (value.length > 0 && value.length < 5)
 	? "Not enough numbers"
+	: undefined
+
+const maxLength = value => value && (value.length > 5)
+	? "Too many numbers"
 	: undefined
 
 const renderField = ({ input, label, type, meta: { touched, error } }) => (
@@ -22,22 +20,21 @@ const renderField = ({ input, label, type, meta: { touched, error } }) => (
 	</div>
 )
 
-const SSN = (props) => {
-
+const ZipCode = props => {
 	return (
 		<Item
-			type={props.lead.socialSecurityNumber}
+			type={props.lead.zip}
 			label={props.label}>
 			<div>
 		        <Field 
-		        	name='socialSecurityNumber'
+		        	name="zip"
 		        	label={props.label}
 		        	component={renderField}
-		        	validate={[length]}
-					{...ssnMask} />
+		        	validate={[minLength, maxLength]}
+	        	/>
 			</div>
 		</Item>
-    )
+	)
 }
 
-export default SSN
+export default ZipCode
