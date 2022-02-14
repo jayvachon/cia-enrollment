@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import Select from 'react-select'
 import { Field, reduxForm, formValueSelector } from 'redux-form'
 import Item from '../Item'
 

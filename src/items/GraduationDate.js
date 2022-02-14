@@ -10,7 +10,7 @@ const renderDatePicker = ({input, label, placeholder, defaultValue, meta: {touch
 		<DatePicker
 			{...input}
 			autoOk={true}
-			selected={input.value || null}
+			selected={input.value !== '' ? new Date(new Date()) : null}
 			onChange={input.onChange} />
       {touched && error && <span>{error}</span>}
   </div>

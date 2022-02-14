@@ -45,11 +45,6 @@ const onSubmit = async (values) => {
 	return await updateLead(id, values)
 }
 
-const onSetEducationLevel = value => {
-	console.log(value)
-	// console.log(props.values)
-}
-
 const BasicInformation = props => {
 
 	const {error, errors, handleSubmit, reset, pristine, submitting } = props
