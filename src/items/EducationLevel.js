@@ -17,11 +17,13 @@ const EducationLevel = props => {
 			type={props.lead.educationLevel}
 			label={props.label}>
 			<div>
+				<label>{props.label}</label>
+				<br />
 		        <Field 
 		        	name="educationLevel"
 		        	label={props.label}
 		        	component="select">
-		        	<option value="">Select a color...</option>
+		        	<option value="">Select an education level...</option>
 		        	{educationLevels.map(level => (
 			        	<option value={level.label} key={level.value}>{level.label}</option>
 	        		))}

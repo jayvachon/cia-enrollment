@@ -2,6 +2,7 @@ import React from 'react'
 import { Field, SubmissionError, reduxForm } from 'redux-form'
 import Example from '../example'
 import { findUser } from '../services/LeadService'
+import './login.css'
 
 const validate = (values) => {
   const errors = {}
@@ -10,22 +11,6 @@ const validate = (values) => {
   }
   return errors
 }
-
-/*async function findUser(email) {
-    try {
-        const response = await fetch(`http://localhost:8080/api/lead?email=${email}`,
-        	{
-        		crossDomain: true,
-        		headers: {
-    		      'Content-Type': 'application/json',
-    		    }
-        	});
-        return await response.json();
-    } catch (error) {
-	    	console.log(error);
-        return [];
-    }
-}*/
 
 const onSubmit = (values) => {
 	return findUser(values.email)
@@ -42,10 +27,10 @@ const onSubmit = (values) => {
 const renderField = ({ input, label, type, meta: {touched, error } }) => {
 	return (
 		<div>
-			<label>{label}</label>
+			{/*<label>{label}</label>*/}
 			<div>
 				<input className="form-control" {...input} placeholder={label} type={type}/>
-				{touched && error && <span>{error}</span>}
+				{/*{touched && error && <span>{error}</span>}*/}
 			</div>
 		</div>
 	)
@@ -56,7 +41,12 @@ const LoginForm = (props) => {
 	const {error, errors, handleSubmit, reset, pristine, submitting} = props;
 	
 	return (
-		<Example title="Login form with redux">
+		<div>
+			{/*<p>Your personal information will not be shown on this page, so no password is necessary</p>*/}
+			<p><strong>First time here?</strong></p>
+			<p>>> Enter the email address you wish to use throughout the full enrollment process.</p>
+			<p><strong>Returning to complete your enrollment?</strong></p>
+			<p>>> Enter the email address you submitted when you created your account.</p>
 			<form onSubmit={handleSubmit}>
 				<Field name="email" component={renderField} type="email" label="Email"/>
 				{error && <strong>{error}</strong>}
@@ -64,7 +54,7 @@ const LoginForm = (props) => {
 					<button type="submit" disabled={pristine || submitting}>Submit</button>
 				</div>
 			</form>
-		</Example>
+		</div>
 	)
 }
 

@@ -1,4 +1,7 @@
 import React from 'react'
+import { reduxForm } from 'redux-form'
+import { updateLead } from './services/LeadService'
+import { SubmissionError } from 'redux-form'
 import SSN from './items/SSN'
 import PhoneNumber from './items/PhoneNumber'
 import BirthDate from './items/BirthDate'
@@ -10,9 +13,6 @@ import City from './items/address/City'
 import State from './items/address/State'
 import EducationLevel from './items/EducationLevel'
 import ZipCode from './items/address/ZipCode'
-import { reduxForm } from 'redux-form'
-import { updateLead } from './services/LeadService'
-import { SubmissionError } from 'redux-form'
 
 let id = ''
 
@@ -27,10 +27,10 @@ Contains:
 	- street /
 	- city /
 	- state /
-	- zip code 
+	- zip code /
 	- country(?)
 - Social security number /
-- Highest education
+- Highest education /
 - High school graduation date /
 
 */
@@ -41,7 +41,7 @@ const validate = values => {
 }
 
 const onSubmit = async (values) => {
-	console.log(values)
+	// console.log(values)
 	return await updateLead(id, values)
 }
 

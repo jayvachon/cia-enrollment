@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import { findUser } from './services/LeadService';
 
 const Login = ({onChangeForm, findUser}) => {
 

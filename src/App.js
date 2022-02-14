@@ -15,53 +15,7 @@ import {Provider} from 'react-redux'
 // import SSN from './items/SSN'
 // import PhoneNumber from './phone'
 import BasicInformation from './BasicInformation'
-
-// function App() {
-
-//   const [user, setUser] = useState({})
-
-//   const state = {
-//     type: '',
-//     subtype: '',
-//   }
-
-//   const callbackFunction = (childData) => {
-//     // console.log(childData)
-//     this.setState({type: childData.type, subtype: childData.subtype});
-//   }
-
-//   const userFind = (e) => {
-
-//       findUser(user)
-//         .then(response => {
-//           console.log(response);
-//       });
-//   }
-
-//   const onChangeForm = (e) => {
-//       console.log(e.target);
-//   }
-
-//   return (
-//     <div>
-//       <header>
-//         <h2>Code Immersives Enrollment</h2>
-//       </header>
-
-//       <Login onChangeForm={onChangeForm} findUser={userFind} />
-
-//       <StudentType parentCallback = {callbackFunction} />
-//       {this.state.subtype &&
-
-//         // objects.map(function(object, i){
-//         //     return <ObjectRow obj={object} key={i} />;
-//         // })
-
-//         <MyDropzone />
-//       }
-//     </div>
-//   )
-// };
+import Documents from './Documents'
 
 class App extends Component {
 
@@ -73,12 +27,12 @@ class App extends Component {
     super()
     this.setLeadData = this.setLeadData.bind(this)
 
-    /*this.state = {
+    this.state = {
       lead: ''
-    }*/
+    }
 
     // for development:
-    this.state = {
+    /*this.state = {
       lead: {
           "status": "New",
           "email": "jay.vachon@codeimmersives.com",
@@ -98,7 +52,7 @@ class App extends Component {
           "state": '',
           "zip": '',
       }
-    }
+    }*/
 
   }
 
@@ -114,6 +68,7 @@ class App extends Component {
     return (
       <Provider store={store}>
         <div className="container" style={{marginBotton: 100}}>
+        <h1>Code Immersives Enrollment</h1>
           {!this.state.lead &&
             <ReduxLogin onSubmitSuccess={this.setLeadData}/>
             
@@ -124,6 +79,9 @@ class App extends Component {
               <BasicInformation 
                 lead={this.state.lead}
                 onSubmitSuccess={this.setLeadData}
+              />
+              <Documents
+                lead={this.state.lead}
               />
             </section>
           }
