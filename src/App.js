@@ -1,34 +1,24 @@
-import React, { Component } from 'react';
-// import logo from './logo.svg';
-// import './App.css';
-// import StudentType from './StudentType';
-// import MyDropzone from './MyDropzone';
-// import Content from './Content';
-// import Login from './Login';
-// import _ from 'lodash';
-// import { findUser } from './services/LeadService';
+import React, { Component } from 'react'
 import store from './store'
 import ReduxLogin from './redux-login'
 import {Provider} from 'react-redux'
-
-// import TextField from './basic/TextField'
-// import SSN from './items/SSN'
-// import PhoneNumber from './phone'
 import BasicInformation from './BasicInformation'
+import StudentType from './StudentType'
 import Documents from './Documents'
 
 class App extends Component {
 
-  state = {
+  /*state = {
     lead: ''
-  }
+  }*/
 
   constructor() {
     super()
     this.setLeadData = this.setLeadData.bind(this)
 
     this.state = {
-      lead: ''
+      lead: '',
+      step: 1,
     }
 
     // for development:
@@ -65,9 +55,12 @@ class App extends Component {
   }
 
   render() {
+
+    const {step} = this.state
+
     return (
       <Provider store={store}>
-        <div className="container" style={{marginBotton: 100}}>
+        <div className="container">
         <h1>Code Immersives Enrollment</h1>
           {!this.state.lead &&
             <ReduxLogin onSubmitSuccess={this.setLeadData}/>
@@ -75,14 +68,19 @@ class App extends Component {
           }
           {this.state.lead &&
             <section>
-              <p>Welcome back {this.state.lead.firstName}!</p>
-              <BasicInformation 
-                lead={this.state.lead}
-                onSubmitSuccess={this.setLeadData}
-              />
-              <Documents
-                lead={this.state.lead}
-              />
+              {this.state.lead.firstName &&
+                <p>Welcome back {this.state.lead.firstName}!</p>
+              }
+              {step === 1 ? <StudentType /> : null }
+              {step === 2 ? <BasicInformation 
+                  lead={this.state.lead}
+                  onSubmitSuccess={this.setLeadData}
+                />
+                : null }
+              {step === 3 ? <Documents
+                  lead={this.state.lead}
+                />
+                : null }
             </section>
           }
         </div>

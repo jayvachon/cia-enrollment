@@ -15,8 +15,6 @@ const validate = (values) => {
 const onSubmit = (values) => {
 	return findUser(values.email)
 		.then((res) => {
-			console.log('got it')
-			console.log(res)
 			return res;
 		})
 		.catch(err => {
