@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Field, reduxForm } from 'redux-form'
+import { updateLead } from './services/LeadService'
 import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
 import _ from 'lodash';
@@ -12,19 +13,26 @@ const options = _.map(Content.studentTypes, t => {
 	};
 });
 
+const civilianDetails = _.find(Content.studentTypes, t => t.id === 'civilian');
 const veteranDetails = _.find(Content.studentTypes, t => t.id === 'veteran');
 const internationalDetails = _.find(Content.studentTypes, t => t.id === 'international');
 
 const details = {
-	civilian: [ 
+	/*civilian: [ 
 		{ value: 'aid', label: 'Financial Aid' },
 		{ value: 'pocket', label: 'Out of Pocket' },
-	],
+	],*/
+	civilian: _.map(civilianDetails.types, d => {
+		return {
+			value: d.id,
+			label: d.label,
+		}
+	}),
 	veteran: _.map(veteranDetails.types, d => {
 		return {
 			value: d.id,
 			label: d.label,
-		};
+		}
 	}),
 	international: _.map(internationalDetails.types, d => {
 		return {
@@ -47,7 +55,6 @@ class StudentType extends Component {
 	}
 
 	_onSelect (option) {
-		console.log(option)
 		this.setState({
 			selected: option,
 			detailSelected: '',
@@ -56,14 +63,6 @@ class StudentType extends Component {
 
 	_onSelectDetail (option) {
 		this.setState({detailSelected: option})
-  	// this.props.parentCallback({
-  	// 	type: this.state.selected,
-  	// 	subtype: option,
-  	// });
-	}
-
-	handleSubmit (values) {
-		console.log(values)
 	}
 
 	renderField ({ input, label, type, meta: {touched, error } }) {
@@ -71,9 +70,21 @@ class StudentType extends Component {
 			<Dropdown
 				options={options}
 				onChange={input.onChange}
-				value={input.defaultOption}
+				value={input.value}
 				placeholder="Select an option" />
 		)
+	}
+
+	async onSubmit(v) {
+	    const type = _.find(Content.studentTypes, t => t.id === this.state.selected.value)
+	    const subtype = _.find(type.types, t => t.id === this.state.detailSelected.value)
+	    const values = {
+	    	type: type.mondayLabel,
+	    	financialAid: type.id === 'international' ? 'None' : subtype.mondayLabel,
+	    }
+	    let response = await updateLead(this.props.lead.id, values)
+	    // console.log(response)
+	    return response
 	}
 
 	render () {
@@ -88,9 +99,10 @@ class StudentType extends Component {
 		const detail = typeof selected === 'string' ? this.state.detailSelected : this.state.detailSelected.label
 
 		return (
+
 			<section>
 				<h2>Student Type</h2>
-				<form onSubmit={this.handleSubmit}>
+				<form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
 					<h3>I am an...</h3>
 					<Field name="type" component={this.renderField} onChange={this._onSelect} value={defaultOption} />
 
@@ -103,7 +115,11 @@ class StudentType extends Component {
 						}
 
 					</div>
-					<button type="submit" disabled={pristine || submitting}>Submit</button>
+					<button
+						type="submit"
+						disabled={!this.state.detailSelected}>
+						Submit
+					</button>
 				</form>
 			</section>
 
@@ -113,5 +129,5 @@ class StudentType extends Component {
 
 export default reduxForm({
 	form: 'student-type',
-	// onSubmit,
+	onSubmit: StudentType.onSubmit,
 })(StudentType)

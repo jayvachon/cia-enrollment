@@ -71,7 +71,7 @@ class App extends Component {
               {this.state.lead.firstName &&
                 <p>Welcome back {this.state.lead.firstName}!</p>
               }
-              {step === 1 ? <StudentType /> : null }
+              {step === 1 ? <StudentType lead={this.state.lead} /> : null }
               {step === 2 ? <BasicInformation 
                   lead={this.state.lead}
                   onSubmitSuccess={this.setLeadData}

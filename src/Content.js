@@ -50,6 +50,19 @@ export default {
 		{
 			id: 'civilian',
 			label: 'American Civilian (non-veteran)',
+			mondayLabel: 'American Civilian',
+			types: [
+				{
+					id: 'fafsa',
+					label: 'Financial Aid',
+					mondayLabel: 'FAFSA',
+				},
+				{
+					id: 'pocket',
+					label: 'Out of Pocket',
+					mondayLabel: 'None',
+				},
+			],
 			requiredFiles: [
 				'id', 'ssc', 'diploma'
 			],
@@ -57,10 +70,12 @@ export default {
 		{
 			id: 'veteran',
 			label: 'American Veteran (or dependent of a veteran)',
+			mondayLabel: 'American Veteran',
 			types: [
 				{
 					id: 'ch31',
 					label: 'Chapter 31 (Montgomery Bill)',
+					mondayLabel: 'Chapter 31',
 					requiredFiles: [
 						'id', 'diploma', 'dd214',
 					],
@@ -68,6 +83,7 @@ export default {
 				{
 					id: 'ch33',
 					label: 'Chapter 33 (Post-9/11)',
+					mondayLabel: 'Chapter 33',
 					requiredFiles: [
 						'id', 'diploma', 'dd214', 'coe',
 					],
@@ -75,6 +91,7 @@ export default {
 				{
 					id: 'ch35',
 					label: 'Chapter 35',
+					mondayLabel: 'Chapter 35',
 					requiredFiles: [
 						'id', 'diploma', 'ssc',
 					],
@@ -82,6 +99,7 @@ export default {
 				{
 					id: 'other',
 					label: 'Other',
+					mondayLabel: 'Other - veteran',
 					requiredFiles: [
 						'id', 'diploma', 'dd214',
 					],
@@ -91,6 +109,7 @@ export default {
 		{
 			id: 'international',
 			label: 'International Student',
+			mondayLabel: 'International',
 			types: [
 				{
 					id: 'new',
