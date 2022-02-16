@@ -101,13 +101,13 @@ function MyDropzone(props) {
   // This lists the files instead of previewing them
   const acceptedFileItems = acceptedFiles.map(file => (
     <li key={file.path}>
-      {file.path} - {file.size} bytes
+      {file.path} {/*- {file.size} bytes*/}
     </li>
   ));
 
   const fileRejectionItems = fileRejections.map(({ file, errors }) => (
     <li key={file.path}>
-      {file.path} - {file.size} bytes
+      {file.path} {/*- {file.size} bytes*/}
       <ul>
         {errors.map(e => (
           <li key={e.code}>{e.message}</li>
@@ -129,20 +129,29 @@ function MyDropzone(props) {
   ));
 
   return (
-    <section className="container">
+    <section className="dropzoneContainer">
       <div {...getRootProps({style})}>
         <input {...getInputProps()} />
         <p>Drag 'n' drop a file here, or click to select a file</p>
       </div>
-      {/*<aside>
-        <h4>Accepted files</h4>
-        <ul>{acceptedFileItems}</ul>
-        <h4>Rejected files</h4>
-        <ul>{fileRejectionItems}</ul>
-      </aside>*/}
-      <aside style={thumbsContainer}>
-        {thumbs}
+      <aside>
+        {acceptedFileItems.length > 0 && 
+          <div>
+            <h4>Accepted file:</h4>
+            <ul>{acceptedFileItems}</ul>
+          </div>
+        }
+        
+        {fileRejectionItems.length > 0 && 
+          <div>
+            <h4>This file cannot be uploaded:</h4>
+            <ul>{fileRejectionItems}</ul>
+          </div>
+        }
       </aside>
+      {/*<aside style={thumbsContainer}>
+        {thumbs}
+      </aside>*/}
     </section>
   );
 }
