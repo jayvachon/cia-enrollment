@@ -50,7 +50,25 @@ class App extends Component {
     if (lead.error) {
       console.log(':(')
     } else {
-      this.setState({lead: lead})
+      let step = 1
+      if (lead.type !== "Not Specified") {
+        step = 2
+
+        if (lead.firstName
+          && lead.lastName
+          && lead.socialSecurityNumber
+          && lead.phone
+          && lead.dateOfBirth
+          && lead.graduationDate
+          && lead.educationLevel
+          && lead.street
+          && lead.city
+          && lead.state
+          && lead.zip) {
+          step = 3
+        }
+      }
+      this.setState({lead, step})
     }
   }
 
@@ -71,7 +89,7 @@ class App extends Component {
               {this.state.lead.firstName &&
                 <p>Welcome back {this.state.lead.firstName}!</p>
               }
-              {step === 1 ? <StudentType lead={this.state.lead} /> : null }
+              {step === 1 ? <StudentType lead={this.state.lead} onUpdateLead={this.setLeadData} /> : null }
               {step === 2 ? <BasicInformation 
                   lead={this.state.lead}
                   onSubmitSuccess={this.setLeadData}

@@ -10,18 +10,21 @@ const options = _.map(Content.studentTypes, t => {
 	return {
 		value: t.id,
 		label: t.label,
-	};
-});
+	}
+})
+
+const courseOptions = _.map(Content.courses, t => {
+	return {
+		value: t.id,
+		label: t.label,
+	}
+})
 
 const civilianDetails = _.find(Content.studentTypes, t => t.id === 'civilian');
 const veteranDetails = _.find(Content.studentTypes, t => t.id === 'veteran');
 const internationalDetails = _.find(Content.studentTypes, t => t.id === 'international');
 
 const details = {
-	/*civilian: [ 
-		{ value: 'aid', label: 'Financial Aid' },
-		{ value: 'pocket', label: 'Out of Pocket' },
-	],*/
 	civilian: _.map(civilianDetails.types, d => {
 		return {
 			value: d.id,
@@ -48,10 +51,12 @@ class StudentType extends Component {
 		super(props)
 		this.state = {
 			selected: '',
-			detailSelected: ''
+			detailSelected: '',
+			courseSelected: '',
 		}
 		this._onSelect = this._onSelect.bind(this)
 		this._onSelectDetail = this._onSelectDetail.bind(this)
+		this._onSelectCourse = this._onSelectCourse.bind(this)
 	}
 
 	_onSelect (option) {
@@ -63,6 +68,10 @@ class StudentType extends Component {
 
 	_onSelectDetail (option) {
 		this.setState({detailSelected: option})
+	}
+
+	_onSelectCourse (option) {
+		this.setState({courseSelected: option})
 	}
 
 	renderField ({ input, label, type, meta: {touched, error } }) {
@@ -79,11 +88,13 @@ class StudentType extends Component {
 	    const type = _.find(Content.studentTypes, t => t.id === this.state.selected.value)
 	    const subtype = _.find(type.types, t => t.id === this.state.detailSelected.value)
 	    const values = {
+	    	course: this.state.courseSelected.label,
 	    	type: type.mondayLabel,
 	    	financialAid: type.id === 'international' ? 'None' : subtype.mondayLabel,
 	    }
 	    let response = await updateLead(this.props.lead.id, values)
 	    // console.log(response)
+	    this.props.onUpdateLead(response)
 	    return response
 	}
 
@@ -103,6 +114,9 @@ class StudentType extends Component {
 			<section>
 				<h2>Student Type</h2>
 				<form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
+
+					<Dropdown options={courseOptions} onChange={this._onSelectCourse} placeholder="Select a course" />
+
 					<h3>I am an...</h3>
 					<Field name="type" component={this.renderField} onChange={this._onSelect} value={defaultOption} />
 
@@ -117,7 +131,7 @@ class StudentType extends Component {
 					</div>
 					<button
 						type="submit"
-						disabled={!this.state.detailSelected}>
+						disabled={!this.state.detailSelected || !this.state.courseSelected}>
 						Submit
 					</button>
 				</form>

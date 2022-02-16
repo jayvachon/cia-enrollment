@@ -2,11 +2,13 @@ export default {
 
 	courses: [
 		{
-			name: 'Web Development Immersives',
+			id: 'wdi_certificate',
+			label: 'Web Development Immersive Certificate',
 			length: '45 weeks',
 		},
 		{
-			name: 'Associate of Science in Computer Science and Web Architecture',
+			id: 'wdi_aos',
+			label: 'Associate of Science in Computer Science and Web Architecture',
 			length: '60 weeks',
 		}
 	],
