@@ -19,6 +19,7 @@ class App extends Component {
     this.state = {
       lead: '',
       step: 1,
+      error: '',
     }
 
     // for development:
@@ -47,28 +48,39 @@ class App extends Component {
   }
 
   setLeadData(lead) {
-    if (lead.error) {
+
+    if (!lead) {
+      this.setState({error: "There was a problem connecting to the server. Please get in touch with admissions at admissions@codeimmersives.com."})
+    }
+
+    if (lead && lead.error) {
       console.log(':(')
     } else {
-      let step = 1
-      if (lead.type !== "Not Specified") {
-        step = 2
+      let step = 0
 
-        if (lead.firstName
-          && lead.lastName
-          && lead.socialSecurityNumber
-          && lead.phone
-          && lead.dateOfBirth
-          && lead.graduationDate
-          && lead.educationLevel
-          && lead.street
-          && lead.city
-          && lead.state
-          && lead.zip) {
-          step = 3
+      if (lead) {
+
+        step = 1
+
+        if (lead.type !== "Not Specified") {
+          step = 2
+
+          if (lead.firstName
+            && lead.lastName
+            && lead.socialSecurityNumber
+            && lead.phone
+            && lead.dateOfBirth
+            && lead.graduationDate
+            && lead.educationLevel
+            && lead.street
+            && lead.city
+            && lead.state
+            && lead.zip) {
+            step = 3
+          }
         }
+        this.setState({lead, step})
       }
-      this.setState({lead, step})
     }
   }
 
@@ -80,9 +92,11 @@ class App extends Component {
       <Provider store={store}>
         <div className="container">
         <h1>Code Immersives Enrollment</h1>
-          {!this.state.lead &&
+          {!this.state.lead && !this.state.error &&
             <ReduxLogin onSubmitSuccess={this.setLeadData}/>
-            
+          }
+          {this.state.error &&
+            <p>{this.state.error}</p>
           }
           {this.state.lead &&
             <section>

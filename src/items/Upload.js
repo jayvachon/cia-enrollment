@@ -5,22 +5,18 @@ import MyDropzone from '../MyDropzone'
 import Dropzone from 'react-dropzone-uploader'
 import 'react-dropzone-uploader/dist/styles.css'
 
-
-/*const onSubmit = values => {
-	console.log(values)
-}*/
-
 const getUploadParams = () => {
 	// return { url: 'https://httpbin.org/post' }
 	return { url: 'http://localhost:8080/api/upload'}
 }
 
 const handleChangeStatus = ({ meta }, status) => {
-	console.log(status, meta)
+	// console.log(status, meta)
 }
 
 const handleSubmit = (files, allFiles) => {
-	console.log(files.map(f => f.meta))
+	// console.log('got it')
+	// console.log(files.map(f => f.meta))
 	allFiles.forEach(f => f.remove())
 }
 
@@ -35,8 +31,7 @@ const renderField = ({ input, label, type, meta: {touched, error } }) => {
 			     // styles={{ dropzone: { minHeight: 200, maxHeight: 250 } }}
 			     accept="image/*,.pdf"
 			     maxFiles={1}
-			   >
-			   </Dropzone>
+			   />
 		</div>
 	)
 }

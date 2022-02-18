@@ -34,6 +34,6 @@ export const findUser = async (email) => {
         return await response.json();
     } catch (error) {
         console.log(error);
-        return [];
+        return undefined;
     }
 }
