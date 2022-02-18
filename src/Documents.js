@@ -30,8 +30,8 @@ const Documents = props => {
 		<section>
 			<h2>Documents</h2>
 			<form onSubmit={handleSubmit}>
-				<Upload label="Official ID" type={props.lead.identification} name="identification" />
-				<Upload label="Diploma or Transcript" type={props.lead.diploma} name="diploma" />
+				<Upload lead={props.lead} label="Official ID" name="identification" />
+				<Upload lead={props.lead} label="Diploma or Transcript" name="diploma" />
 				{/*<button type="submit" disabled={submitting}>Submit</button>*/}
 			</form>
 		</section>

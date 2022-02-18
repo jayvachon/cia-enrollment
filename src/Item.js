@@ -2,6 +2,8 @@ import React from 'react'
 
 const Item = (props) => {
 
+	// console.log(props.type)
+
 	return (
 		<div className="item">
 			{!props.type &&
