@@ -13,9 +13,13 @@ export default {
 		}
 	],
 
-	files: {
-		id: {
-			label: 'ID',
+	documents: {
+		essay: {
+			label: 'Essay',
+			message: '', 
+		},
+		identification: {
+			label: 'Official ID',
 			message: 'This can be any official ID, including your license,  passport...' 
 		},
 		passport: {
@@ -38,8 +42,12 @@ export default {
 			label: 'Certificate of Eligibility',
 			message: '',
 		},
-		funds: {
+		proof32k: {
 			label: 'Proof of access to $32,000',
+			message: '',
+		},
+		affidavit: {
+			label: 'Affidavit of Support',
 			message: '',
 		},
 		f1: {
@@ -58,15 +66,18 @@ export default {
 					id: 'fafsa',
 					label: 'Financial Aid',
 					mondayLabel: 'FAFSA',
+					requiredDocuments: [
+						'essay', 'identification', 'diploma'
+					],
 				},
 				{
 					id: 'pocket',
 					label: 'Out of Pocket',
 					mondayLabel: 'None',
+					requiredDocuments: [
+						'essay', 'identification', 'diploma'
+					],
 				},
-			],
-			requiredFiles: [
-				'id', 'ssc', 'diploma'
 			],
 		},
 		{
@@ -78,32 +89,32 @@ export default {
 					id: 'ch31',
 					label: 'Chapter 31 (Montgomery Bill)',
 					mondayLabel: 'Chapter 31',
-					requiredFiles: [
-						'id', 'diploma', 'dd214',
+					requiredDocuments: [
+						'essay', 'identification', 'diploma', 'dd214',
 					],
 				},
 				{
 					id: 'ch33',
 					label: 'Chapter 33 (Post-9/11)',
 					mondayLabel: 'Chapter 33',
-					requiredFiles: [
-						'id', 'diploma', 'dd214', 'coe',
+					requiredDocuments: [
+						'essay', 'identification', 'diploma', 'dd214', 'coe',
 					],
 				},
 				{
 					id: 'ch35',
 					label: 'Chapter 35',
 					mondayLabel: 'Chapter 35',
-					requiredFiles: [
-						'id', 'diploma', 'ssc',
+					requiredDocuments: [
+						'essay', 'identification', 'diploma',
 					],
 				},
 				{
 					id: 'other',
 					label: 'Other',
 					mondayLabel: 'Other - veteran',
-					requiredFiles: [
-						'id', 'diploma', 'dd214',
+					requiredDocuments: [
+						'essay', 'identification', 'diploma', 'dd214',
 					],
 				},
 			],
@@ -116,21 +127,21 @@ export default {
 				{
 					id: 'new',
 					label: 'Living outside the United States',
-					requiredFiles: [
-						'passport', 'diploma', 'funds',
+					requiredDocuments: [
+						'essay', 'passport', 'diploma', 'proof32k',
 					],
 				},
 				{
 					id: 'transfer',
 					label: 'Living in the United States using an F1 visa',
-					requiredFiles: [
-						'passport', 'diploma', 'funds',
+					requiredDocuments: [
+						'essay', 'passport', 'diploma', 'proof32k',
 					],
 				},
 				{
 					id: 'problem',
 					label: 'Living in the United States without an F1 visa',
-					requiredFiles: [],
+					requiredDocuments: [],
 				},
 			],
 		},

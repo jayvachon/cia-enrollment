@@ -5,6 +5,7 @@ import {Provider} from 'react-redux'
 import BasicInformation from './BasicInformation'
 import StudentType from './StudentType'
 import Documents from './Documents'
+import Steps from './Steps'
 
 class App extends Component {
 
@@ -15,6 +16,7 @@ class App extends Component {
   constructor() {
     super()
     this.setLeadData = this.setLeadData.bind(this)
+    this.setStep = this.setStep.bind(this)
 
     this.state = {
       lead: '',
@@ -84,6 +86,10 @@ class App extends Component {
     }
   }
 
+  setStep(step) {
+    this.setState({step})
+  }
+
   render() {
 
     const {step} = this.state
@@ -100,6 +106,9 @@ class App extends Component {
           }
           {this.state.lead &&
             <section>
+              
+              <Steps onUpdateStep={this.setStep} />
+
               {this.state.lead.firstName &&
                 <p>Welcome back {this.state.lead.firstName}!</p>
               }

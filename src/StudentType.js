@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import { Field, reduxForm } from 'redux-form'
 import { updateLead } from './services/LeadService'
-import Dropdown from 'react-dropdown';
-import 'react-dropdown/style.css';
-import _ from 'lodash';
-import Content from './Content.js';
+import Dropdown from 'react-dropdown'
+import 'react-dropdown/style.css'
+import _ from 'lodash'
+import Content from './Content.js'
 
 const options = _.map(Content.studentTypes, t => {
 	return {
