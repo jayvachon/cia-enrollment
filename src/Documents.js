@@ -33,7 +33,7 @@ const Documents = props => {
 
 	return (
 		<section>
-			<h2>Documents</h2>
+			<h2>Required Documents</h2>
 			<form onSubmit={handleSubmit}>
 
 				{requiredDocuments.map((doc, i) => 

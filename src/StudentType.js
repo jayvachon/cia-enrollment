@@ -10,6 +10,7 @@ const options = _.map(Content.studentTypes, t => {
 	return {
 		value: t.id,
 		label: t.label,
+		mondayLabel: t.mondayLabel,
 	}
 })
 
@@ -20,27 +21,30 @@ const courseOptions = _.map(Content.courses, t => {
 	}
 })
 
-const civilianDetails = _.find(Content.studentTypes, t => t.id === 'civilian');
-const veteranDetails = _.find(Content.studentTypes, t => t.id === 'veteran');
-const internationalDetails = _.find(Content.studentTypes, t => t.id === 'international');
+const civilianDetails = _.find(Content.studentTypes, t => t.id === 'civilian')
+const veteranDetails = _.find(Content.studentTypes, t => t.id === 'veteran')
+const internationalDetails = _.find(Content.studentTypes, t => t.id === 'international')
 
 const details = {
 	civilian: _.map(civilianDetails.types, d => {
 		return {
 			value: d.id,
 			label: d.label,
+			mondayLabel: d.mondayLabel,
 		}
 	}),
 	veteran: _.map(veteranDetails.types, d => {
 		return {
 			value: d.id,
 			label: d.label,
+			mondayLabel: d.mondayLabel,
 		}
 	}),
 	international: _.map(internationalDetails.types, d => {
 		return {
 			value: d.id,
 			label: d.label,
+			mondayLabel: d.mondayLabel,
 		}
 	}),
 };
@@ -49,10 +53,23 @@ class StudentType extends Component {
 
 	constructor (props) {
 		super(props)
+
+		let courseSelected = _.find(courseOptions, courseOption => courseOption.label === this.props.lead.course)
+		
+		let selected = ''
+		if (this.props.lead.type) {
+			 selected = _.find(options, option => option.mondayLabel === this.props.lead.type)
+		}
+
+		let detailSelected = ''
+		if (selected && this.props.lead.financialAid) {
+			detailSelected = _.find(details[selected.value], detailOption => detailOption.mondayLabel === this.props.lead.financialAid)
+		}
+
 		this.state = {
-			selected: '',
-			detailSelected: '',
-			courseSelected: '',
+			selected,
+			detailSelected,
+			courseSelected,
 		}
 		this._onSelect = this._onSelect.bind(this)
 		this._onSelectDetail = this._onSelectDetail.bind(this)
@@ -102,12 +119,11 @@ class StudentType extends Component {
 
 		const {error, errors, handleSubmit, reset, pristine, submitting} = this.props
 
-		const defaultOption = this.state.selected
-		const placeHolderValue = typeof this.state.selected === 'string' ? this.state.selected : this.state.selected.label
-		const selected = typeof this.state.selected === 'string' ? this.state.selected : this.state.selected.value
-
+		const defaultCourse = this.state.courseSelected
+		const defaultType = this.state.selected
 		const defaultDetailOption = this.state.detailSelected
-		const detail = typeof selected === 'string' ? this.state.detailSelected : this.state.detailSelected.label
+
+		const detailOptions = typeof this.state.selected === 'string' ? this.state.selected : this.state.selected.value
 
 		return (
 
@@ -115,17 +131,20 @@ class StudentType extends Component {
 				<h2>Student Type</h2>
 				<form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
 
-					<Dropdown options={courseOptions} onChange={this._onSelectCourse} placeholder="Select a course" />
+					<Dropdown options={courseOptions} onChange={this._onSelectCourse} placeholder="Select a course" value={defaultCourse} />
 
 					<h3>I am an...</h3>
-					<Field name="type" component={this.renderField} onChange={this._onSelect} value={defaultOption} />
+					
+					<Dropdown
+						options={options}
+						onChange={this._onSelect}
+						value={defaultType}
+						placeholder="Select an option" />
 
 					<div className='result'>
-						You selected
-						<strong> {placeHolderValue} </strong>
 
-						{selected !== '' &&
-							<Dropdown options={details[selected]} onChange={this._onSelectDetail} value={defaultDetailOption} placeholder="Select an option"/>
+						{this.state.selected &&
+							<Dropdown options={details[detailOptions]} onChange={this._onSelectDetail} value={defaultDetailOption} placeholder="Select an option"/>
 						}
 
 					</div>
