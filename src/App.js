@@ -109,19 +109,21 @@ class App extends Component {
               
               <Steps step={this.state.step} onUpdateStep={this.setStep} lead={this.state.lead} />
 
-              {this.state.lead.firstName &&
-                <p>Hello {this.state.lead.firstName}!</p>
-              }
-              {step === 1 ? <StudentType lead={this.state.lead} onUpdateLead={this.setLeadData} /> : null }
-              {step === 2 ? <BasicInformation 
-                  lead={this.state.lead}
-                  onSubmitSuccess={this.setLeadData}
-                />
-                : null }
-              {step === 3 ? <Documents
-                  lead={this.state.lead}
-                />
-                : null }
+              <div className="content">
+                {this.state.lead.firstName &&
+                  <p>Hello {this.state.lead.firstName}!</p>
+                }
+                {step === 1 ? <StudentType lead={this.state.lead} onUpdateLead={this.setLeadData} /> : null }
+                {step === 2 ? <BasicInformation 
+                    lead={this.state.lead}
+                    onSubmitSuccess={this.setLeadData}
+                  />
+                  : null }
+                {step === 3 ? <Documents
+                    lead={this.state.lead}
+                  />
+                  : null }
+                </div>
             </section>
           }
           <footer>

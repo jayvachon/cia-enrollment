@@ -40,11 +40,45 @@ button {
   font-size: 19px;
 }
 
+button:hover {
+  cursor: pointer;
+}
+
 .container {
   max-width: 800px;
   padding: 12px;
 }
 
+.content {
+  margin: 48px 0;
+}
+
+.instructions {
+  margin-bottom: 48px;
+  line-height: 1.5;
+}
+
 footer {
   margin-top: auto;
+}
+
+.complete {
+  background-color: #dfffc1;
+  border-left: 4px solid #57971b;
+}
+
+.incomplete {
+  background-color: #fff6b5;
+  border-left: 4px solid #e9cd04;
+}
+
+.submit {
+  margin-top: 24px;
+  padding: 12px 24px;
+  background-color: #f2f9fc;
+  border: 1px solid #00b9ff;
+}
+
+.submit:hover {
+  background-color: #9ee2ff;
 }

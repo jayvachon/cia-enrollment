@@ -16,8 +16,8 @@
 	font-weight: bold;
 }
 
-.step#hover {
-	background-color: black;
+.step:hover {
+	background-color: #9ee2ff;
 }
 
 #solid {
