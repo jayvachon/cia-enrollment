@@ -1,3 +1,9 @@
+html, body, #root, .container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
 body {
   margin: 0;
   font-family: Roboto,-apple-system,BlinkMacSystemFont,'Helvetica Neue',Helvetica,sans-serif;
@@ -12,10 +18,10 @@ code {
 }
 
 #root {
-  display: flex;
+  /*display: flex;*/
   align-items: center;
   justify-content: center;
-  flex-direction: column;
+  /*flex-direction: column;*/
 }
 
 input {
@@ -36,4 +42,9 @@ button {
 
 .container {
   max-width: 800px;
+  padding: 12px;
+}
+
+footer {
+  margin-top: auto;
 }

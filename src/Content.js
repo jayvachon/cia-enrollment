@@ -110,6 +110,14 @@ export default {
 					],
 				},
 				{
+					id: 'vrrap',
+					label: 'VRRAP',
+					mondayLabel: 'VRRAP',
+					requiredDocuments: [
+						'essay', 'identification', 'diploma', 'dd214', 'coe',
+					],
+				},
+				{
 					id: 'other',
 					label: 'Other',
 					mondayLabel: 'Other - veteran',

@@ -107,10 +107,10 @@ class App extends Component {
           {this.state.lead &&
             <section>
               
-              <Steps onUpdateStep={this.setStep} />
+              <Steps step={this.state.step} onUpdateStep={this.setStep} lead={this.state.lead} />
 
               {this.state.lead.firstName &&
-                <p>Welcome back {this.state.lead.firstName}!</p>
+                <p>Hello {this.state.lead.firstName}!</p>
               }
               {step === 1 ? <StudentType lead={this.state.lead} onUpdateLead={this.setLeadData} /> : null }
               {step === 2 ? <BasicInformation 
@@ -124,6 +124,9 @@ class App extends Component {
                 : null }
             </section>
           }
+          <footer>
+            <p>Need help using this website? Email admissions@codeimmersives.com</p>
+          </footer>
         </div>
       </Provider>
     );

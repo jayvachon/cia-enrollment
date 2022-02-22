@@ -23,10 +23,9 @@ class Upload extends Component {
 	}
 
 	handleChangeStatus({ meta }, status) {
-		// console.log(status, meta)
 		if (status === 'removed') {
 			this.props.lead[this.props.name] = 'x'
-			// console.log(this.props.lead)
+			this.forceUpdate()
 		}
 	}
 

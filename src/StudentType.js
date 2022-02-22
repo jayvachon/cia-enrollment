@@ -123,17 +123,27 @@ class StudentType extends Component {
 		const defaultType = this.state.selected
 		const defaultDetailOption = this.state.detailSelected
 
-		const detailOptions = typeof this.state.selected === 'string' ? this.state.selected : this.state.selected.value
+		let detailOptions = ''
+		if (this.state.selected) {
+			detailOptions = typeof this.state.selected === 'string' ? this.state.selected : this.state.selected.value
+		}
+		console.log(detailOptions)
 
 		return (
 
 			<section>
-				<h2>Student Type</h2>
+				{/*<h2>Student Type</h2>*/}
+				<p>To begin, please let us know which course you would like to take and whether you are an American civilian, veteran, or an international student. If you don't know the answer to any of these questions, choose the one that fits best. You can always change your answer later.</p>
 				<form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
 
-					<Dropdown options={courseOptions} onChange={this._onSelectCourse} placeholder="Select a course" value={defaultCourse} />
+					<p>Which course would you like to enroll in?</p>
+					<Dropdown
+						options={courseOptions}
+						onChange={this._onSelectCourse}
+						placeholder="Select a course"
+						value={defaultCourse} />
 
-					<h3>I am an...</h3>
+					<p>Which type of student are you?</p>
 					
 					<Dropdown
 						options={options}
@@ -143,11 +153,25 @@ class StudentType extends Component {
 
 					<div className='result'>
 
+						{detailOptions === 'veteran' &&
+							<p>Which type of benefits will you be using?</p>
+						}
+						{detailOptions === 'civilian' &&
+							<p>How do you plan to pay for your tuition?</p>
+						}
+						{detailOptions === 'international' &&
+							<p>What is your visa status?</p>
+						}
 						{this.state.selected &&
-							<Dropdown options={details[detailOptions]} onChange={this._onSelectDetail} value={defaultDetailOption} placeholder="Select an option"/>
+							<Dropdown
+								options={details[detailOptions]}
+								onChange={this._onSelectDetail}
+								value={defaultDetailOption}
+								placeholder="Select an option"/>
 						}
 
 					</div>
+					<br />
 					<button
 						type="submit"
 						disabled={!this.state.detailSelected || !this.state.courseSelected}>

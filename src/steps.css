@@ -1,0 +1,25 @@
+.nav {
+	display: flex;
+}
+
+.step {
+	flex-grow: 1;
+	background: none;
+	border: none;
+	border-bottom: 4px solid #9ee2ff;
+	padding: 16px 12px;
+}
+
+.step#selected {
+	background-color: #f2f9fc;
+	border-bottom-color: #00b9ff;
+	font-weight: bold;
+}
+
+.step#hover {
+	background-color: black;
+}
+
+#solid {
+	border-bottom-color: black;
+}

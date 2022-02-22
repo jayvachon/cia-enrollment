@@ -53,7 +53,8 @@ const BasicInformation = props => {
 
 	return (
 		<section>
-			<h2>Basic information</h2>
+			{/*<h2>Basic information</h2>*/}
+			<p>Next, please fill out your personal information. We use this information to set up your online profile with the school, help you access your benefits, and ship your laptop. For your security, your information is stored on an encrpyted server and will not be displayed on this website.</p>
 			<form onSubmit={handleSubmit}>
 				<FirstName label="First Name" lead={props.lead} />
 				<LastName label="Last Name" lead={props.lead} />
