@@ -16,7 +16,7 @@
 	font-weight: bold;
 }
 
-.step:hover {
+.step:hover:enabled {
 	background-color: #9ee2ff;
 }
 
