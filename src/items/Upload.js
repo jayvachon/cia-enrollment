@@ -39,14 +39,16 @@ class Upload extends Component {
 		return (
 			<div>
 				<label>{label}</label>
-				<Dropzone
-				     getUploadParams={this.getUploadParams}
-				     onChangeStatus={this.handleChangeStatus}
-				     onSubmit={this.handleSubmit}
-				     // styles={{ dropzone: { minHeight: 200, maxHeight: 250 } }}
-				     accept="image/*,.pdf"
-				     maxFiles={1}
-				   />
+				<div className="vspacer">
+					<Dropzone
+					     getUploadParams={this.getUploadParams}
+					     onChangeStatus={this.handleChangeStatus}
+					     onSubmit={this.handleSubmit}
+					     // styles={{ dropzone: { minHeight: 200, maxHeight: 250 } }}
+					     accept="image/*,.pdf"
+					     maxFiles={1}
+					   />
+			   </div>
 			</div>
 		)
 	}

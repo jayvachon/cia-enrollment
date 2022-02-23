@@ -5,7 +5,6 @@ import Dropdown from 'react-dropdown'
 import 'react-dropdown/style.css'
 import _ from 'lodash'
 import Content from './Content.js'
-import './studentType.css'
 
 const options = _.map(Content.studentTypes, t => {
 	return {
@@ -137,8 +136,8 @@ class StudentType extends Component {
 				<p className="instructions">To begin, please let us know which course you would like to take and whether you are an American civilian, veteran, or an international student. If you don't know the answer to any of these questions, choose the one that fits best. You can always change your answer later.</p>
 				<form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
 
-					<div className={`type-section ${this.state.courseSelected ? "complete" : "incomplete"}`}>
-						<p className="type-prompt">Which course would you like to enroll in?</p>
+					<div className={`item-section ${this.state.courseSelected ? "complete" : "incomplete"}`}>
+						<p className="item-prompt">Which course would you like to enroll in?</p>
 						<Dropdown
 							options={courseOptions}
 							onChange={this._onSelectCourse}
@@ -146,8 +145,8 @@ class StudentType extends Component {
 							value={defaultCourse} />
 					</div>
 
-					<div className={`type-section ${this.state.selected ? "complete" : "incomplete"}`}>
-						<p className="type-prompt">Which type of student are you?</p>
+					<div className={`item-section ${this.state.selected ? "complete" : "incomplete"}`}>
+						<p className="item-prompt">Which type of student are you?</p>
 						<Dropdown
 							options={options}
 							onChange={this._onSelect}
@@ -158,15 +157,15 @@ class StudentType extends Component {
 					<div className='result'>
 
 						{this.state.selected &&
-							<div className={`type-section ${this.state.detailSelected ? "complete" : "incomplete"}`}>
+							<div className={`item-section ${this.state.detailSelected ? "complete" : "incomplete"}`}>
 								{detailOptions === 'veteran' &&
-									<p className="type-prompt">Which type of benefits will you be using?</p>
+									<p className="item-prompt">Which type of benefits will you be using?</p>
 								}
 								{detailOptions === 'civilian' &&
-									<p className="type-prompt">How do you plan to cover tuition?</p>
+									<p className="item-prompt">How do you plan to cover tuition?</p>
 								}
 								{detailOptions === 'international' &&
-									<p className="type-prompt">What is your visa status?</p>
+									<p className="item-prompt">What is your visa status?</p>
 								}
 								<Dropdown
 									options={details[detailOptions]}

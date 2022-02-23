@@ -40,7 +40,7 @@ button {
   font-size: 19px;
 }
 
-button:hover {
+button:hover:enabled {
   cursor: pointer;
 }
 
@@ -67,6 +67,15 @@ footer {
   border-left: 4px solid #57971b;
 }
 
+.item-section {
+    padding: 24px;
+    margin-bottom: 12px;
+}
+
+.item-prompt {
+    margin: 0 0 12px 0;
+}
+
 .incomplete {
   background-color: #fff6b5;
   border-left: 4px solid #e9cd04;
@@ -79,6 +88,10 @@ footer {
   border: 1px solid #00b9ff;
 }
 
-.submit:hover {
+.submit:hover:enabled {
   background-color: #9ee2ff;
+}
+
+.vspacer {
+  padding-top: 12px;
 }

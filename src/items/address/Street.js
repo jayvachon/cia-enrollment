@@ -5,7 +5,7 @@ import Item from '../../Item'
 const renderField = ({ input, label, type, meta: { touched, error } }) => (
 	<div>
 		<label>{label}</label>
-		<div>
+		<div className="vspacer">
 			<input className='form-control' {...input} placeholder={label} type={type}/>
 			{touched && error && <span>{error}</span>}
 		</div>

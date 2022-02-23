@@ -54,7 +54,12 @@ const BasicInformation = props => {
 	return (
 		<section>
 			{/*<h2>Basic information</h2>*/}
-			<p className="instructions">Next, please fill out your personal information. We use this information to set up your online profile with the school, help you access your benefits, and ship your laptop. For your security, your information is stored on an encrypted server and will not be displayed on this website.</p>
+
+			<div className="instructions">
+				<p>Next, please fill out your personal information. We use this information to set up your online profile with the school, help you access your benefits, and ship your laptop.</p>
+				<p>For your security, your information is stored on an encrypted server and will not be displayed on this website.</p>
+			</div>
+
 			<form onSubmit={handleSubmit}>
 				<FirstName label="First Name" lead={props.lead} />
 				<LastName label="Last Name" lead={props.lead} />
@@ -71,7 +76,7 @@ const BasicInformation = props => {
 				<State label="State" lead={props.lead} />
 				<ZipCode label="Zip Code" lead={props.lead} />
 
-				<button type="submit" disabled={pristine || submitting}>Submit</button>
+				<button className="submit" type="submit" disabled={pristine || submitting}>Submit</button>
 			</form>
 		</section>
 	)

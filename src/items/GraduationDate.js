@@ -7,12 +7,14 @@ import Item from '../Item'
 const renderDatePicker = ({input, label, placeholder, defaultValue, meta: {touched, error} }) => (
   <div>
   	<label>{label}</label>
-		<DatePicker
-			{...input}
-			autoOk={true}
-			selected={input.value !== '' ? new Date(new Date()) : null}
-			onChange={input.onChange} />
-      {touched && error && <span>{error}</span>}
+  	<div className="vspacer">
+			<DatePicker
+				{...input}
+				autoOk={true}
+				selected={input.value !== '' ? new Date(new Date()) : null}
+				onChange={input.onChange} />
+	      {touched && error && <span>{error}</span>}
+    </div>
   </div>
 );
 

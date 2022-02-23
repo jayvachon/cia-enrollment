@@ -18,16 +18,17 @@ const EducationLevel = props => {
 			label={props.label}>
 			<div>
 				<label>{props.label}</label>
-				<br />
-		        <Field 
-		        	name="educationLevel"
-		        	label={props.label}
-		        	component="select">
-		        	<option value="">Select an education level...</option>
-		        	{educationLevels.map(level => (
-			        	<option value={level.label} key={level.value}>{level.label}</option>
-	        		))}
-			    </Field>
+				<div className="vspacer">
+			        <Field 
+			        	name="educationLevel"
+			        	label={props.label}
+			        	component="select">
+			        	<option value="">Select an education level...</option>
+			        	{educationLevels.map(level => (
+				        	<option value={level.label} key={level.value}>{level.label}</option>
+		        		))}
+				    </Field>
+			    </div>
 			</div>
 		</Item>
 	)
