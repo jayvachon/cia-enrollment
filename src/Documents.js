@@ -33,7 +33,6 @@ const Documents = props => {
 
 	return (
 		<section>
-			{/*<h2>Required Documents</h2>*/}
 			<div className="instructions">
 				<p>Lastly, please submit the following required documents.</p>
 				<p>For your security, your documents are stored on an encrypted server and will not be displayed on this website.</p>

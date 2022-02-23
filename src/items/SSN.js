@@ -12,15 +12,11 @@ const ssnMask = createTextMask({
 const length = value => value && (value.length > 0 && value.length < 9)
 	? "Not enough numbers!"
 	: undefined
-
-const expand = () => {
-
-}
-
+	
 const renderField = ({ toggleProps, collapseProps, input, label, type, meta: { touched, error } }) => (
 	<div>
 		<div className="collapsible">
-			<label {...toggleProps()}>{label} <span><button className="toggle-info" onClick={expand}>?</button></span></label>
+			<label {...toggleProps()}>{label} <span><button className="toggle-info">?</button></span></label>
 		</div>
 		<div className="vspacer">
 			<div {...collapseProps()}>

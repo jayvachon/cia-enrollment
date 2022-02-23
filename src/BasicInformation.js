@@ -53,8 +53,7 @@ const BasicInformation = props => {
 
 	return (
 		<section>
-			{/*<h2>Basic information</h2>*/}
-
+		
 			<div className="instructions">
 				<p>Next, please fill out your personal information. We use this information to set up your online profile with the school, help you access your benefits, and ship your laptop.</p>
 				<p>For your security, your information is stored on an encrypted server and will not be displayed on this website.</p>

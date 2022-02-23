@@ -2,8 +2,10 @@ import React, { Component } from 'react'
 import { Field, reduxForm, formValueSelector } from 'redux-form'
 import Item from '../Item'
 import MyDropzone from '../MyDropzone'
+import useCollapse from 'react-collapsed'
 import Dropzone from 'react-dropzone-uploader'
 import 'react-dropzone-uploader/dist/styles.css'
+
 
 class Upload extends Component {
 
