@@ -3,11 +3,11 @@ import { Field, reduxForm, formValueSelector } from 'redux-form'
 import Item from '../../Item'
 
 const minLength = value => value && (value.length > 0 && value.length < 5)
-	? "Not enough numbers"
+	? "Not enough numbers!"
 	: undefined
 
 const maxLength = value => value && (value.length > 5)
-	? "Too many numbers"
+	? "Too many numbers!"
 	: undefined
 
 const renderField = ({ input, label, type, meta: { touched, error } }) => (

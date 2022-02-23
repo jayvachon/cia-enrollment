@@ -12,12 +12,12 @@
 
 .step#selected {
 	background-color: #f2f9fc;
-	border-bottom-color: #00b9ff;
+	border-bottom-color: #2484ff;
 	font-weight: bold;
 }
 
 .step:hover:enabled {
-	background-color: #9ee2ff;
+	background-color: #f2f9fc;
 }
 
 #solid {

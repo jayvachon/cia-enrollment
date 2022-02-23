@@ -71,6 +71,11 @@ const BasicInformation = props => {
 				<GraduationDate label="High School Graduation Date" lead={props.lead} />
 				<EducationLevel label="Highest Education Level" lead={props.lead} />
 
+				<div className="content">
+					<h3>Mailing Address</h3>
+					<p>For your address, please enter the mailing address where you would like your laptop to be shipped. This must be a US address. If you do not have a US address, or if you are planning to move in the near future, you can leave this blank and return to it later.</p>
+				</div>
+
 				<Street label="Street" lead={props.lead} />
 				<City label="City" lead={props.lead} />
 				<State label="State" lead={props.lead} />

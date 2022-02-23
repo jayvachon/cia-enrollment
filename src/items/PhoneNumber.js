@@ -9,15 +9,15 @@ const phoneMask = createTextMask({
 });
 
 const length = value => value && (value.length > 0 && value.length < 10)
-	? "Not enough numbers"
+	? "Not enough numbers!"
 	: undefined
 
 const renderField = ({ input, label, type, meta: { touched, error } }) => (
 	<div>
-		<label>{label}</label>
+		<label>{label} (US only)</label>
 		<div className="vspacer">
 			<input className='form-control' {...input} placeholder={label} type={type}/>
-			{touched && error && <span>{error}</span>}
+			{touched && error && <span className="error">{error}</span>}
 		</div>
 	</div>
 )
