@@ -42,7 +42,13 @@ const Documents = props => {
 			<form onSubmit={handleSubmit}>
 
 				{requiredDocuments.map((doc, i) => 
-					<Upload lead={props.lead} label={Content.documents[doc].label} key={doc} name={doc} moreInfo={Content.documents[doc].message} />)
+					<Upload
+						lead={props.lead}
+						label={Content.documents[doc].label}
+						key={doc}
+						name={doc}
+						moreInfo={Content.documents[doc].message}
+						download={Content.documents[doc].download} />)
 				}
 			</form>
 		</section>

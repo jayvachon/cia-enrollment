@@ -56,11 +56,13 @@ export default {
 		},
 		i20transfer: {
 			label: 'I-20 Transfer-In Form',
-			message: '',
+			download: 'I-20_Transfer-In_form.doc',
+			message: 'Fill out this form with your previous school and then upload it for us to review.',
 		},
 		i20creationAndDelivery: {
 			label: 'I-20 Creation and Delivery Form',
-			message: '',
+			download: 'I-20_Creation_and_Delivery.pdf',
+			message: 'The information on this form will be used to create your I-20.',
 		},
 	},
 

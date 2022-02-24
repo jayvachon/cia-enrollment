@@ -3,10 +3,10 @@ import { Field } from 'redux-form'
 import Dropzone from 'react-dropzone-uploader'
 import useCollapse from 'react-collapsed'
 
-const renderField = ({ toggleProps, collapseProps, getUploadParams, handleChangeStatus, handleSubmit, moreInfo, input, label, type, meta: {touched, error } }) => {
+const renderField = ({ toggleProps, collapseProps, getUploadParams, handleChangeStatus, handleSubmit, download, moreInfo, input, label, type, meta: {touched, error } }) => {
 	return (
 		<div>
-		
+
 			{moreInfo !== '' &&
 				<div className="collapsible">
 					<label {...toggleProps()}>{label} <span><button type="button" className="toggle-info">?</button></span></label>
@@ -15,6 +15,10 @@ const renderField = ({ toggleProps, collapseProps, getUploadParams, handleChange
 
 			{moreInfo === '' &&
 				<label>{label}</label>
+			}
+
+			{download &&
+				<p><a href={require(`../assets/${download}`)} download={download}>Download form</a></p>
 			}
 
 			<div className="vspacer">
@@ -31,7 +35,7 @@ const renderField = ({ toggleProps, collapseProps, getUploadParams, handleChange
 					getUploadParams={getUploadParams}
 					onChangeStatus={handleChangeStatus}
 					onSubmit={handleSubmit}
-					// styles={{ dropzone: { minHeight: 200, maxHeight: 250 } }}
+					styles={{ dropzone: { minHeight: 60, maxHeight: 250 } }}
 					accept="image/*,.pdf"
 					maxFiles={1}
 				   />
@@ -53,6 +57,7 @@ const UploadField = (props) => {
 			getUploadParams={props.getUploadParams}
 			handleChangeState={props.handleChangeStatus}
 			handleSubmit={props.handleSubmit}
+			download={props.download}
 			moreInfo={props.moreInfo}
 			component={renderField} />
 	)

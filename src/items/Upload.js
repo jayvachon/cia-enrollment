@@ -11,7 +11,6 @@ class Upload extends Component {
 
 	constructor(props) {
 		super(props)
-		this.renderField = this.renderField.bind(this)
 		this.getUploadParams = this.getUploadParams.bind(this)
 		this.handleChangeStatus = this.handleChangeStatus.bind(this)
 	}
@@ -37,24 +36,6 @@ class Upload extends Component {
 		allFiles.forEach(f => f.remove())
 	}
 
-	renderField({ input, label, type, meta: {touched, error } }) {
-		return (
-			<div>
-				<label>{label}</label>
-				<div className="vspacer">
-					<Dropzone
-						getUploadParams={this.getUploadParams}
-						onChangeStatus={this.handleChangeStatus}
-						onSubmit={this.handleSubmit}
-						// styles={{ dropzone: { minHeight: 200, maxHeight: 250 } }}
-						accept="image/*,.pdf"
-						maxFiles={1}
-					   />
-			   </div>
-			</div>
-		)
-	}
-
 	render() {
 
 		const {type, label, name} = this.props
@@ -66,17 +47,12 @@ class Upload extends Component {
 				<UploadField
 					name={this.props.name}
 					label={this.props.label}
+					download={this.props.download}
 					moreInfo={this.props.moreInfo}
 					getUploadParams={this.getUploadParams}
 					handleChangeStatus={this.handleChangeStatus}
 					handleSubmit={this.handleSubmit}
 					/>
-				{/*<Field
-					name={this.props.name}
-					label={this.props.label}
-					// component={UploadField} 
-					component={this.renderField}
-					/>*/}
 			</Item>
 		)
 	}

@@ -62,8 +62,14 @@ class StudentType extends Component {
 		}
 
 		let detailSelected = ''
-		if (selected && this.props.lead.financialAid) {
-			detailSelected = _.find(details[selected.value], detailOption => detailOption.mondayLabel === this.props.lead.financialAid)
+		// if (selected && this.props.lead.financialAid) {
+		if (selected) {
+			if (selected.value === 'international') {
+				detailSelected = _.find(details[selected.value], detailOption => detailOption.mondayLabel === this.props.lead.visa)
+			} else {
+				detailSelected = _.find(details[selected.value], detailOption => detailOption.mondayLabel === this.props.lead.financialAid)
+			}
+			// detailSelected = _.find(details[selected.value], detailOption => detailOption.mondayLabel === this.props.lead.financialAid)
 		}
 
 		this.state = {
@@ -140,7 +146,7 @@ class StudentType extends Component {
 		return (
 
 			<section>
-				{/*<h2>Student Type</h2>*/}
+				
 				<p className="instructions">To begin, please let us know which course you would like to take and whether you are an American civilian, veteran, or an international student. If you don't know the answer to any of these questions, choose the one that fits best. You can always change your answer later.</p>
 				<form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
 
