@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import { Field, reduxForm, formValueSelector } from 'redux-form'
 import Item from '../Item'
 import MyDropzone from '../MyDropzone'
-import useCollapse from 'react-collapsed'
 import Dropzone from 'react-dropzone-uploader'
+import UploadField from './UploadField'
 import 'react-dropzone-uploader/dist/styles.css'
 
 
@@ -43,12 +43,12 @@ class Upload extends Component {
 				<label>{label}</label>
 				<div className="vspacer">
 					<Dropzone
-					     getUploadParams={this.getUploadParams}
-					     onChangeStatus={this.handleChangeStatus}
-					     onSubmit={this.handleSubmit}
-					     // styles={{ dropzone: { minHeight: 200, maxHeight: 250 } }}
-					     accept="image/*,.pdf"
-					     maxFiles={1}
+						getUploadParams={this.getUploadParams}
+						onChangeStatus={this.handleChangeStatus}
+						onSubmit={this.handleSubmit}
+						// styles={{ dropzone: { minHeight: 200, maxHeight: 250 } }}
+						accept="image/*,.pdf"
+						maxFiles={1}
 					   />
 			   </div>
 			</div>
@@ -63,10 +63,20 @@ class Upload extends Component {
 			<Item
 				type={this.props.lead[this.props.name]}
 				label={this.props.label}>
-				<Field
+				<UploadField
 					name={this.props.name}
 					label={this.props.label}
-					component={this.renderField} />
+					moreInfo={this.props.moreInfo}
+					getUploadParams={this.getUploadParams}
+					handleChangeStatus={this.handleChangeStatus}
+					handleSubmit={this.handleSubmit}
+					/>
+				{/*<Field
+					name={this.props.name}
+					label={this.props.label}
+					// component={UploadField} 
+					component={this.renderField}
+					/>*/}
 			</Item>
 		)
 	}

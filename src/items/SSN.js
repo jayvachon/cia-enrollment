@@ -16,7 +16,7 @@ const length = value => value && (value.length > 0 && value.length < 9)
 const renderField = ({ toggleProps, collapseProps, input, label, type, meta: { touched, error } }) => (
 	<div>
 		<div className="collapsible">
-			<label {...toggleProps()}>{label} <span><button className="toggle-info">?</button></span></label>
+			<label {...toggleProps()}>{label} <span><button type="button" className="toggle-info">?</button></span></label>
 		</div>
 		<div className="vspacer">
 			<div {...collapseProps()}>

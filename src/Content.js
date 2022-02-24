@@ -16,11 +16,11 @@ export default {
 	documents: {
 		essay: {
 			label: 'Essay',
-			message: '', 
+			message: 'In a page or less, tell us why you are interested in learning to code, why you think Code Immersives is a good fit for you, and what you would like to do with your skills after you graduate.', 
 		},
 		identification: {
 			label: 'Official ID',
-			message: 'This can be any official ID, including your license,  passport...' 
+			message: 'Any form of photo ID that includes your full name and date of birth is acceptable. Examples include: driver\'s license, passport, or military ID.' 
 		},
 		passport: {
 			label: 'Passport',
@@ -32,7 +32,7 @@ export default {
 		},
 		diploma: {
 			label: 'Diploma',
-			message: 'This can be a high school diploma or college diploma. If you do not have your diploma, we can also accept an official transcript. If you do not have access to either your diploma or transcript, you can make a request to your school to have them send you a new copy.'
+			message: 'To meet this requirement, you can submit a GED, or high school diploma or transcript showing that you have graduated. You can also submit a college degree or transcript showing that you have graduated college. If you do not have access to any of these, you can request that your school send you a new copy.'
 		},
 		dd214: {
 			label: 'DD-214',
@@ -40,7 +40,7 @@ export default {
 		},
 		coe: {
 			label: 'Certificate of Eligibility',
-			message: '',
+			message: 'If you do not yet have your COE, you can instead submit a screenshot of your Statement of Benefits posted on the VA website.',
 		},
 		proof32k: {
 			label: 'Proof of access to $32,000',
