@@ -54,6 +54,14 @@ export default {
 			label: 'F1 Student Visa',
 			message: '',
 		},
+		i20transfer: {
+			label: 'I-20 Transfer-In Form',
+			message: '',
+		},
+		i20creationAndDelivery: {
+			label: 'I-20 Creation and Delivery Form',
+			message: '',
+		},
 	},
 
 	studentTypes: [
@@ -135,20 +143,23 @@ export default {
 				{
 					id: 'new',
 					label: 'Living outside the United States',
+					mondayLabel: 'Need Visa',
 					requiredDocuments: [
-						'essay', 'passport', 'diploma', 'proof32k',
+						'essay', 'passport', 'diploma', 'proof32k', 'i20creationAndDelivery',
 					],
 				},
 				{
 					id: 'transfer',
 					label: 'Living in the United States using an F1 visa',
+					mondayLabel: 'Have Visa',
 					requiredDocuments: [
-						'essay', 'passport', 'diploma', 'proof32k',
+						'essay', 'passport', 'diploma', 'proof32k', 'i20transfer',
 					],
 				},
 				{
 					id: 'problem',
 					label: 'Living in the United States without an F1 visa',
+					mondayLabel: 'N/A',
 					requiredDocuments: [],
 				},
 			],

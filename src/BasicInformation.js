@@ -62,7 +62,7 @@ const BasicInformation = props => {
 			<form onSubmit={handleSubmit}>
 				<FirstName label="First Name" lead={props.lead} />
 				<LastName label="Last Name" lead={props.lead} />
-				{props.lead.type !== 'international'&&
+				{props.lead.type !== 'International' &&
 					<SSN label="Social Security Number" lead={props.lead} />
 				}
 				<PhoneNumber label="Phone Number" lead={props.lead} />

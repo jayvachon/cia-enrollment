@@ -6,7 +6,11 @@ const step23enabled = (lead) => {
 	const hasType = lead.type && lead.type !== "Not Specified"
 	let hasFinancialAid = false
 	if (hasType && lead.type === "International") {
-		hasFinancialAid = true
+		if (lead.visa === 'N/A') {
+			hasFinancialAid = false
+		} else {
+			hasFinancialAid = true
+		}
 	}
 	if (hasType && lead.type == "American Civilian" && lead.financialAid) {
 		hasFinancialAid = true

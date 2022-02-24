@@ -41,15 +41,17 @@ const LoginForm = (props) => {
 	return (
 		<div>
 			{/*<p>Your personal information will not be shown on this page, so no password is necessary</p>*/}
-			<p><strong>First time here?</strong></p>
-			<p>>> Enter the email address you wish to use throughout the full enrollment process.</p>
-			<p><strong>Returning to complete your enrollment?</strong></p>
-			<p>>> Enter the email address you submitted when you created your account.</p>
+			<h3>First time here?</h3>
+			<p>Enter the email address you wish to use throughout the full enrollment process.</p>
+			<h3>Returning to continue your enrollment?</h3>
+			<p>Enter the email address you submitted when you created your account.</p>
 			<form onSubmit={handleSubmit}>
-				<Field name="email" component={renderField} type="email" label="Email"/>
+				<div className="vspacer">
+					<Field name="email" component={renderField} type="email" label="Email"/>
+				</div>
 				{error && <strong>{error}</strong>}
 				<div style={{marginTop: 20}}>
-					<button type="submit" disabled={pristine || submitting}>Submit</button>
+					<button className="submit" type="submit" disabled={pristine || submitting}>Submit</button>
 				</div>
 			</form>
 		</div>

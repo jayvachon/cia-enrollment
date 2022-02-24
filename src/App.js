@@ -127,7 +127,7 @@ class App extends Component {
             </section>
           }
           <footer>
-            <p>Need help using this website? Email admissions@codeimmersives.com</p>
+            <p>Questions about enrollment? Need help using this website? Send us an email at <a href="mailto:admissions@codeimmersives.com">admissions@codeimmersives.com</a></p>
           </footer>
         </div>
       </Provider>

@@ -29,7 +29,9 @@ const Documents = props => {
 	id = props.lead.id
 
 	const studentType = _.find(Content.studentTypes, t => t.mondayLabel === props.lead.type)
-	const requiredDocuments = _.find(studentType.types, t => t.mondayLabel === props.lead.financialAid).requiredDocuments
+	const requiredDocuments = studentType.id === 'international'
+		? _.find(studentType.types, t => t.mondayLabel === props.lead.visa).requiredDocuments 
+		: _.find(studentType.types, t => t.mondayLabel === props.lead.financialAid).requiredDocuments
 
 	return (
 		<section>

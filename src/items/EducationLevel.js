@@ -20,6 +20,7 @@ const EducationLevel = props => {
 				<label>{props.label}</label>
 				<div className="vspacer">
 			        <Field 
+			        	className="select-dropdown"
 			        	name="educationLevel"
 			        	label={props.label}
 			        	component="select">

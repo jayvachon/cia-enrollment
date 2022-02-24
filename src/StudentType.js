@@ -108,6 +108,7 @@ class StudentType extends Component {
 	    	course: this.state.courseSelected.label,
 	    	type: type.mondayLabel,
 	    	financialAid: type.id === 'international' ? 'None' : subtype.mondayLabel,
+	    	visa: type.id !== 'international' ? 'N/A' : subtype.mondayLabel,
 	    }
 	    let response = await updateLead(this.props.lead.id, values)
 	    // console.log(response)
@@ -127,7 +128,14 @@ class StudentType extends Component {
 		if (this.state.selected) {
 			detailOptions = typeof this.state.selected === 'string' ? this.state.selected : this.state.selected.value
 		}
-		console.log(detailOptions)
+
+		let detailDropdownClass = 'incomplete'
+		if (this.state.detailSelected) {
+			detailDropdownClass = 'complete'
+			if (this.state.detailSelected.value === 'problem') {
+				detailDropdownClass = 'problem'
+			}
+		}
 
 		return (
 
@@ -157,7 +165,7 @@ class StudentType extends Component {
 					<div className='result'>
 
 						{this.state.selected &&
-							<div className={`item-section ${this.state.detailSelected ? "complete" : "incomplete"}`}>
+							<div className={`item-section ${detailDropdownClass}`}>
 								{detailOptions === 'veteran' &&
 									<p className="item-prompt">Which type of benefits will you be using?</p>
 								}
@@ -172,6 +180,9 @@ class StudentType extends Component {
 									onChange={this._onSelectDetail}
 									value={defaultDetailOption}
 									placeholder="Select an option"/>
+								{this.state.detailSelected && this.state.detailSelected.value === 'problem' &&
+									<p><strong>We advise that you return to your home country to apply for an F1 student visa.</strong> Switching to an F1 visa while residing in the United States is a very long, complicated process, and you are less likely to be approved.</p>
+								}
 							</div>
 						}
 
@@ -179,7 +190,7 @@ class StudentType extends Component {
 					<button
 						className="submit"
 						type="submit"
-						disabled={!this.state.detailSelected || !this.state.courseSelected}>
+						disabled={!this.state.detailSelected || !this.state.courseSelected || this.state.detailSelected.value === 'problem'}>
 						Submit
 					</button>
 				</form>

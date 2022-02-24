@@ -61,6 +61,8 @@ button:hover:enabled {
 
 footer {
   margin-top: auto;
+  padding: 24px 0;
+  color:  #444;
 }
 
 .complete {
@@ -71,6 +73,11 @@ footer {
 .incomplete {
   background-color: rgba(255,229,100,.3);
   border-left: 8px solid #ffe564;
+}
+
+.problem {
+  background-color: #ffc1c1;
+  border-left: 8px solid #971b1b;
 }
 
 .item-section {
@@ -96,6 +103,10 @@ footer {
 
 .submit:hover:enabled {
   background-color: #9ee2ff;
+}
+
+.submit:disabled {
+  background-color: #ccc;
 }
 
 .vspacer {
@@ -124,9 +135,28 @@ footer {
   margin-bottom: 12px;
   background: white;
   color: #444444;
+  border-top: 1px solid #d9d9d9;
 }
 
 .dzu-dropzone {
   background: white;
   overflow: hidden !important;
+  min-height: 60px;
+  font-size: 19px;
+  font-weight: normal;
+}
+
+.select-dropdown {
+  position: relative;
+  overflow: hidden;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  box-sizing: border-box;
+  color: #333;
+  cursor: default;
+  outline: none;
+  padding: 8px 52px 8px 10px;
+  transition: all 200ms ease;
+  font-size: 19px;
 }
