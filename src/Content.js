@@ -44,11 +44,12 @@ export default {
 		},
 		proof32k: {
 			label: 'Proof of access to $32,000',
-			message: '',
+			message: 'Please upload a screenshot from your bank account showing a balance of at least $32,000 to cover the cost of tuition plus the cost of living in the United States without employment. If you plan to be supported by a family member or friend, you can instead upload a screenshot of their bank account along with an Affidavit of Support form (see below)',
 		},
 		affidavit: {
-			label: 'Affidavit of Support',
-			message: '',
+			label: 'Affidavit of Support (optional)',
+			download: 'Affidavit_of_Support.pdf',
+			message: 'If you plan to be financially supported by a family member or a friend, have them fill out this form. If you will be paying tuition on your own, you do not need to use this form.',
 		},
 		f1: {
 			label: 'F1 Student Visa',
@@ -147,7 +148,7 @@ export default {
 					label: 'Living outside the United States',
 					mondayLabel: 'Need Visa',
 					requiredDocuments: [
-						'essay', 'passport', 'diploma', 'proof32k', 'i20creationAndDelivery',
+						'essay', 'passport', 'diploma', 'proof32k', 'affidavit', 'i20creationAndDelivery',
 					],
 				},
 				{
@@ -155,7 +156,7 @@ export default {
 					label: 'Living in the United States using an F1 visa',
 					mondayLabel: 'Have Visa',
 					requiredDocuments: [
-						'essay', 'passport', 'diploma', 'proof32k', 'i20transfer',
+						'essay', 'passport', 'diploma', 'proof32k', 'affidavit', 'i20transfer',
 					],
 				},
 				{
