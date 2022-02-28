@@ -12,7 +12,14 @@ const renderDatePicker = ({input, label, placeholder, defaultValue, meta: {touch
 				{...input}
 				autoOk={true}
 				selected={input.value !== '' ? new Date(new Date()) : null}
-				onChange={input.onChange} />
+				onChange={input.onChange}
+				placeholder="Click to select date"
+				showPopperArrow={false}
+				maxDate={new Date()}
+				showMonthDropdown
+				showYearDropdown
+				dropdownMode="select"
+				/>
 	      {touched && error && <span>{error}</span>}
     </div>
   </div>

@@ -63,6 +63,11 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/a
 
 ### Deployment
 
+```
+npm run build
+scp -r ./build/* root@codeimmersivesadmissions.website:/var/www/codeimmersivesadmissions.website/html
+```
+
 This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
 ### `npm run build` fails to minify

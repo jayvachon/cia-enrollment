@@ -15,7 +15,7 @@ const renderField = ({ input, label, type, meta: { touched, error } }) => (
 		<label>{label}</label>
 		<div className="vspacer">
 			<input className='form-control' {...input} placeholder={label} type={type}/>
-			{touched && error && <span>{error}</span>}
+			{touched && error && <span className="error">{error}</span>}
 		</div>
 	</div>
 )
