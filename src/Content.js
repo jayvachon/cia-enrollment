@@ -34,6 +34,11 @@ export default {
 			label: 'Diploma',
 			message: 'To meet this requirement, you can submit a GED, or high school diploma or transcript showing that you have graduated. You can also submit a college degree or transcript showing that you have graduated college. If you do not have access to any of these, you can request that your school send you a new copy.'
 		},
+		credentialEvaluation: {
+			label: 'Credential Evaluation',
+			download: 'Credential_Evaluation.pdf',
+			message: 'If you do not have a diploma from an American high school or university, you must complete a credential evaluation with International Evaluation Services. To do this, download and fill out the above form, and email it along with your transcripts to Mario at IES (info@iesedu.org). Once completed, return here to upload your credential evaluation. (If you have a diploma from an American school, you can skip this step.)',
+		},
 		dd214: {
 			label: 'DD-214',
 			message: '',
@@ -64,6 +69,10 @@ export default {
 			label: 'I-20 Creation and Delivery Form',
 			download: 'I-20_Creation_and_Delivery.pdf',
 			message: 'The information on this form will be used to create your I-20.',
+		},
+		i20: {
+			label: "I-20",
+			message: '',
 		},
 	},
 
@@ -148,7 +157,7 @@ export default {
 					label: 'Living outside the United States',
 					mondayLabel: 'Need Visa',
 					requiredDocuments: [
-						'essay', 'passport', 'diploma', 'proof32k', 'affidavit', 'i20creationAndDelivery',
+						'essay', 'passport', 'diploma', 'credentialEvaluation', 'proof32k', 'affidavit', 'i20creationAndDelivery', 'f1', 'i20'
 					],
 				},
 				{
@@ -156,7 +165,7 @@ export default {
 					label: 'Living in the United States using an F1 visa',
 					mondayLabel: 'Have Visa',
 					requiredDocuments: [
-						'essay', 'passport', 'diploma', 'proof32k', 'affidavit', 'i20transfer',
+						'essay', 'passport', 'diploma', 'credentialEvaluation', 'proof32k', 'affidavit', 'i20transfer', 'f1', 'i20'
 					],
 				},
 				{

@@ -55,7 +55,7 @@ const UploadField = (props) => {
 			toggleProps={getToggleProps}
 			collapseProps={getCollapseProps}
 			getUploadParams={props.getUploadParams}
-			handleChangeState={props.handleChangeStatus}
+			handleChangeStatus={props.handleChangeStatus}
 			handleSubmit={props.handleSubmit}
 			download={props.download}
 			moreInfo={props.moreInfo}

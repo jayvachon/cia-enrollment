@@ -16,16 +16,20 @@ class Upload extends Component {
 	}
 
 	getUploadParams({ file, meta }) {
+
+		const documentType = this.props.name === "passport" ? "identification" : this.props.name
+
 		const body = new FormData()
 		body.append('file', file)
 		body.append('leadId', this.props.lead.id)
-		body.append('documentType', this.props.name)
+		body.append('documentType', documentType)
 		return { url: 'http://localhost:8080/api/upload', body }
 	}
 
 	handleChangeStatus({ meta }, status) {
 		if (status === 'removed') {
-			this.props.lead[this.props.name] = 'x'
+			const documentType = this.props.name === 'passport' ? 'identification' : this.props.name
+			this.props.lead[documentType] = 'x'
 			this.forceUpdate()
 		}
 	}
@@ -39,10 +43,11 @@ class Upload extends Component {
 	render() {
 
 		const {type, label, name} = this.props
+		const documentType = this.props.name === "passport" ? this.props.lead["identification"] : this.props.lead[this.props.name]
 
 		return (
 			<Item
-				type={this.props.lead[this.props.name]}
+				type={documentType}
 				label={this.props.label}>
 				<UploadField
 					name={this.props.name}
