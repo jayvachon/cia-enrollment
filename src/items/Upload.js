@@ -23,7 +23,8 @@ class Upload extends Component {
 		body.append('file', file)
 		body.append('leadId', this.props.lead.id)
 		body.append('documentType', documentType)
-		return { url: 'http://localhost:8080/api/upload', body }
+		// return { url: 'http://localhost:8080/api/upload', body }
+		return { url: `${process.env.REACT_APP_API_ROOT}/upload`, body }
 	}
 
 	handleChangeStatus({ meta }, status) {

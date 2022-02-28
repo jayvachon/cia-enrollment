@@ -97,7 +97,7 @@ class App extends Component {
     return (
       <Provider store={store}>
         <div className="container">
-        <h1>Code Immersives Enrollment</h1>
+        <h1>Code Immersives Enrollment Portal</h1>
           {!this.state.lead && !this.state.error &&
             <ReduxLogin onSubmitSuccess={this.setLeadData}/>
           }

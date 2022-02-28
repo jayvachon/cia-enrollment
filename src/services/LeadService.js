@@ -2,7 +2,7 @@ import React from 'react'
 
 export const updateLead = async (id, columnValues) => {
     try {
-        const response = await fetch(`http://localhost:8080/api/updateLead`, {
+        const response = await fetch(`${process.env.REACT_APP_API_ROOT}/updateLead`, {//`http://localhost:8080/api/updateLead`, {
             crossDomain: true,
             mode: 'cors',
             method: 'POST',
@@ -23,8 +23,10 @@ export const updateLead = async (id, columnValues) => {
 }
 
 export const findUser = async (email) => {
+    console.log(process.env)
+    console.log(`${process.env.REACT_APP_API_ROOT}lead?email=${email}`)
     try {
-        const response = await fetch(`http://localhost:8080/api/lead?email=${email}`,
+        const response = await fetch(`${process.env.REACT_APP_API_ROOT}/lead?email=${email}`, //`http://localhost:8080/api/lead?email=${email}`,
             {
                 crossDomain: true,
                 headers: {
