@@ -32,12 +32,14 @@ const renderField = ({ toggleProps, collapseProps, getUploadParams, handleChange
 				}
 
 				<Dropzone
+					inputContent="Drag File or Click to Browse"
 					getUploadParams={getUploadParams}
 					onChangeStatus={handleChangeStatus}
 					onSubmit={handleSubmit}
 					styles={{ dropzone: { minHeight: 60, maxHeight: 250 } }}
-					accept="image/*,.pdf"
+					accept="image/*,.pdf,.doc,.docx,.rtf,.txt"
 					maxFiles={1}
+					multiple={false}
 				   />
 		   </div>
 		</div>

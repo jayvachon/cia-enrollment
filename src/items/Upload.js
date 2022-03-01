@@ -27,6 +27,8 @@ class Upload extends Component {
 	}
 
 	handleChangeStatus({ meta }, status) {
+		console.log(status)
+		console.log(meta)
 		if (status === 'removed') {
 			const documentType = this.props.name === 'passport' ? 'identification' : this.props.name
 			this.props.lead[documentType] = 'x'

@@ -11,7 +11,7 @@ const renderDatePicker = ({input, label, placeholder, defaultValue, meta: {touch
 			<DatePicker
 				{...input}
 				autoOk={true}
-				selected={input.value !== '' ? new Date(new Date()) : null}
+				selected={input.value !== '' ? new Date(input.value) : null}
 				onChange={input.onChange}
 				placeholder="Click to select date"
 				showPopperArrow={false}
