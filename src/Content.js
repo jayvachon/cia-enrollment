@@ -74,12 +74,16 @@ export default {
 			label: "I-20",
 			message: '',
 		},
+		picture: {
+			label: 'Headshot',
+			message: 'Upload a picture of yourself from the shoulders up. This should be an ID-quality photo, meaning that your face is clearly visible, with no glasses or non-religious headwear.',
+		},
 	},
 
 	studentTypes: [
 		{
 			id: 'civilian',
-			label: 'American Civilian (non-veteran)',
+			label: 'American Citizen (non-veteran)',
 			mondayLabel: 'American Civilian',
 			types: [
 				{
@@ -87,7 +91,7 @@ export default {
 					label: 'Financial Aid',
 					mondayLabel: 'FAFSA',
 					requiredDocuments: [
-						'essay', 'identification', 'diploma'
+						'essay', 'identification', 'diploma', 'picture'
 					],
 				},
 				{
@@ -95,7 +99,7 @@ export default {
 					label: 'Out of Pocket',
 					mondayLabel: 'None',
 					requiredDocuments: [
-						'essay', 'identification', 'diploma'
+						'essay', 'identification', 'diploma', 'picture'
 					],
 				},
 			],
@@ -110,7 +114,7 @@ export default {
 					label: 'Chapter 31 (Montgomery Bill)',
 					mondayLabel: 'Chapter 31',
 					requiredDocuments: [
-						'essay', 'identification', 'diploma', 'dd214',
+						'essay', 'identification', 'diploma', 'dd214', 'picture'
 					],
 				},
 				{
@@ -118,7 +122,7 @@ export default {
 					label: 'Chapter 33 (Post-9/11)',
 					mondayLabel: 'Chapter 33',
 					requiredDocuments: [
-						'essay', 'identification', 'diploma', 'dd214', 'coe',
+						'essay', 'identification', 'diploma', 'dd214', 'coe', 'picture'
 					],
 				},
 				{
@@ -126,7 +130,7 @@ export default {
 					label: 'Chapter 35',
 					mondayLabel: 'Chapter 35',
 					requiredDocuments: [
-						'essay', 'identification', 'diploma',
+						'essay', 'identification', 'diploma', 'picture'
 					],
 				},
 				{
@@ -134,7 +138,7 @@ export default {
 					label: 'VRRAP',
 					mondayLabel: 'VRRAP',
 					requiredDocuments: [
-						'essay', 'identification', 'diploma', 'dd214', 'coe',
+						'essay', 'identification', 'diploma', 'dd214', 'coe', 'picture'
 					],
 				},
 				{
@@ -142,7 +146,7 @@ export default {
 					label: 'Other',
 					mondayLabel: 'Other - veteran',
 					requiredDocuments: [
-						'essay', 'identification', 'diploma', 'dd214',
+						'essay', 'identification', 'diploma', 'dd214', 'picture'
 					],
 				},
 			],
@@ -157,7 +161,7 @@ export default {
 					label: 'Living outside the United States',
 					mondayLabel: 'Need Visa',
 					requiredDocuments: [
-						'essay', 'passport', 'diploma', 'credentialEvaluation', 'proof32k', 'affidavit', 'i20creationAndDelivery', 'f1', 'i20'
+						'essay', 'passport', 'diploma', 'credentialEvaluation', 'proof32k', 'affidavit', 'i20creationAndDelivery', 'f1', 'i20', 'picture'
 					],
 				},
 				{
@@ -165,7 +169,7 @@ export default {
 					label: 'Living in the United States using an F1 visa',
 					mondayLabel: 'Have Visa',
 					requiredDocuments: [
-						'essay', 'passport', 'diploma', 'credentialEvaluation', 'proof32k', 'affidavit', 'i20transfer', 'f1', 'i20'
+						'essay', 'passport', 'diploma', 'credentialEvaluation', 'proof32k', 'affidavit', 'i20transfer', 'f1', 'i20', 'picture'
 					],
 				},
 				{

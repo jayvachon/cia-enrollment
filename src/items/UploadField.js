@@ -48,7 +48,9 @@ const renderField = ({ toggleProps, collapseProps, getUploadParams, handleChange
 
 const UploadField = (props) => {
 
-	const { getCollapseProps, getToggleProps, isExpanded } = useCollapse()
+	const { getCollapseProps, getToggleProps, isExpanded } = useCollapse({
+		defaultExpanded: true,
+	})
 
 	return (
 		<Field
