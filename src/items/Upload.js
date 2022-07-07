@@ -39,6 +39,7 @@ class Upload extends Component {
 	handleSubmit(files, allFiles) {
 		// console.log('got it')
 		// console.log(files.map(f => f.meta))
+		alert("Files Uploaded Successfully : " + JSON.stringify(allFiles.map(x => x.meta.name)));
 		allFiles.forEach(f => f.remove())
 	}
 

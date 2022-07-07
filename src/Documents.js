@@ -14,13 +14,11 @@ const validate = values => {
 }
 
 const onSubmit = async (values) => {
+	alert("Thank you, We have received your submission");
 	console.log(values)
 	return await updateLead(id, values)
 }
 
-const handleSubmit = values => {
-	console.log(values)
-}
 
 const Documents = props => {
 
@@ -50,6 +48,7 @@ const Documents = props => {
 						moreInfo={Content.documents[doc].message}
 						download={Content.documents[doc].download} />)
 				}
+				<button className="submit" type="submit">Submit</button>
 			</form>
 		</section>
 	)

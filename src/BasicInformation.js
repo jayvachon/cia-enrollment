@@ -40,10 +40,21 @@ const validate = values => {
 	return errors
 }
 
+
+// const onSubmit = async (values) => {
+// 	// console.log(values)
+// 	let response = await updateLead(id, values)
+// 	return response
+// }
+
+
+
 const onSubmit = async (values) => {
 	// console.log(values)
 	return await updateLead(id, values)
 }
+
+
 
 const BasicInformation = props => {
 
@@ -55,7 +66,8 @@ const BasicInformation = props => {
 		<section>
 		
 			<div className="instructions">
-				<p>Next, please fill out your personal information. We use this information to set up your online profile with the school, help you access your benefits, and ship your laptop.</p>
+				<p>Next, please fill out your personal information. We use this information to set up your online profile with the school, help you access your benefits.</p>
+				{/* <p>Next, please fill out your personal information. We use this information to set up your online profile with the school, help you access your benefits, and ship your laptop.</p> */}
 				<p>For your security, your information is stored on an encrypted server and will not be displayed on this website.</p>
 			</div>
 
@@ -66,13 +78,15 @@ const BasicInformation = props => {
 					<SSN label="Social Security Number" lead={props.lead} />
 				}
 				<PhoneNumber label="Phone Number" lead={props.lead} />
-				<BirthDate label="Date of Birth" lead={props.lead} />
+				<BirthDate label="Date of Birth (Please use Dropdown to access month / day / year)" lead={props.lead} />
+				{/* <BirthDate label="Date of Birth" lead={props.lead} /> */}
 				<GraduationDate label="High School Graduation Date" lead={props.lead} />
 				<EducationLevel label="Highest Education Level" lead={props.lead} />
 
 				<div className="content">
 					<h3>Mailing Address</h3>
-					<p>For your address, please enter the mailing address where you would like your laptop to be shipped. This must be a US address. If you do not have a US address, or if you are planning to move in the near future, you can leave this blank and return to it later.</p>
+					<p>For your address, please enter the mailing address where any materials / equipment / laptop will be shipped to (if relevant). This must be a US address. If you do not have a US address, or if you are planning to move in the near future, you can leave this blank and return to it later.</p>
+					{/* <p>For your address, please enter the mailing address where you would like your laptop to be shipped. This must be a US address. If you do not have a US address, or if you are planning to move in the near future, you can leave this blank and return to it later.</p> */}
 				</div>
 
 				<Street label="Street" lead={props.lead} />

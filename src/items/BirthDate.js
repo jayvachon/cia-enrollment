@@ -4,7 +4,9 @@ import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
 import Item from '../Item'
 
-const renderDatePicker = ({input, label, placeholder, defaultValue, meta: {touched, error} }) => (
+ 
+
+const renderDatePicker = ({input, label, type, placeholder, defaultValue, meta: {touched, error} }) => (
   <div>
   	<label>{label}</label>
   	<div className="vspacer">
@@ -20,10 +22,13 @@ const renderDatePicker = ({input, label, placeholder, defaultValue, meta: {touch
 				showYearDropdown
 				dropdownMode="select"
 				/>
+
 	      {touched && error && <span>{error}</span>}
       </div>
   </div>
 );
+
+
 
 const BirthDate = (props) => {
 	const [startDate, setStartDate] = useState(new Date());
@@ -34,7 +39,7 @@ const BirthDate = (props) => {
 			<Field
 				name="dateOfBirth"
 				label={props.label}
-				component={renderDatePicker} />
+				component={renderDatePicker}/>
 		</Item>
 	)
 }

@@ -69,7 +69,7 @@ class App extends Component {
 
           if (lead.firstName
             && lead.lastName
-            && lead.socialSecurityNumber
+         //   && .socialSecurityNumber
             && lead.phone
             && lead.dateOfBirth
             && lead.graduationDate
@@ -97,7 +97,9 @@ class App extends Component {
     return (
       <Provider store={store}>
         <div className="container">
-        <h1>Code Immersives Enrollment Portal</h1>
+        {/* <h1>Code Immersives Enrollment Portal</h1> */}
+        <h1>Enrollment Portal</h1>
+        
           {!this.state.lead && !this.state.error &&
             <ReduxLogin onSubmitSuccess={this.setLeadData}/>
           }
@@ -127,7 +129,7 @@ class App extends Component {
             </section>
           }
           <footer>
-            <p>Questions about enrollment? Need help using this website? Send us an email at <a href="mailto:admissions@codeimmersives.com">admissions@codeimmersives.com</a></p>
+            <p>Questions about enrollment? Need help using this website? Send us an email at <a href="mailto:admissions@codeimmersives.com">admissions@codeimmersives.com</a> or <a href="mailto:admissions@digitalfilmacademy.edu">admissions@digitalfilmacademy.edu</a> </p>
           </footer>
         </div>
       </Provider>

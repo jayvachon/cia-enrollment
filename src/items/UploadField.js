@@ -37,14 +37,16 @@ const renderField = ({ toggleProps, collapseProps, getUploadParams, handleChange
 					onChangeStatus={handleChangeStatus}
 					onSubmit={handleSubmit}
 					styles={{ dropzone: { minHeight: 60, maxHeight: 250 } }}
+					// accept=".pdf,.doc,.docx,.rtf,.txt"
 					accept="image/*,.pdf,.doc,.docx,.rtf,.txt"
-					maxFiles={1}
-					multiple={false}
+					// "dropzone.invalid.error": "Invalid content",
+					
 				   />
 		   </div>
 		</div>
 	)
 }
+
 
 const UploadField = (props) => {
 

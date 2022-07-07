@@ -23,7 +23,7 @@ export const updateLead = async (id, columnValues) => {
 }
 
 export const findUser = async (email) => {
-    try {
+    try {   
         const response = await fetch(`${process.env.REACT_APP_API_ROOT}/lead?email=${email}`, //`http://localhost:8080/api/lead?email=${email}`,
             {
                 crossDomain: true,
