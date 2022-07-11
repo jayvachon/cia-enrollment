@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
 import { Field, reduxForm, formValueSelector } from 'redux-form'
 import Item from '../Item'
-import MyDropzone from '../MyDropzone'
+// import MyDropzone from '../MyDropzone'
 import Dropzone from 'react-dropzone-uploader'
 import UploadField from './UploadField'
 import 'react-dropzone-uploader/dist/styles.css'
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 
 class Upload extends Component {
@@ -27,10 +29,23 @@ class Upload extends Component {
 	}
 
 	handleChangeStatus({ meta }, status) {
-		// console.log(status)
-		// console.log(meta)
+
+		const documentType = this.props.name === 'passport' ? 'identification' : this.props.name
+
+		if (status === 'headers_received') {
+			toast.success(`${meta.name} uploaded!`)
+			this.props.lead[documentType] = 'x'
+			this.forceUpdate()
+		} else if (status === 'aborted') {
+			toast.error(`${meta.name}, upload failed...`)
+		}
+
+		if (status === 'rejected_file_type') {
+			toast.error('Error: that file type is not supported')
+		}
+
 		if (status === 'removed') {
-			const documentType = this.props.name === 'passport' ? 'identification' : this.props.name
+			
 			this.props.lead[documentType] = 'x'
 			this.forceUpdate()
 		}

@@ -2,6 +2,16 @@ import React from 'react'
 import { Field } from 'redux-form'
 import Dropzone from 'react-dropzone-uploader'
 import useCollapse from 'react-collapsed'
+import { ToastContainer, toast } from 'react-toastify'
+
+const CustomContent = () => {
+	return (
+		<div className="dropzone-text">
+			<p className="instruction">Drop A File</p>
+			<p className="accepted-files">Accepted file types: .png, .jpg, .jpeg, .pdf, .doc, .docx, .rtf, .txt</p>
+		</div>
+		)
+}
 
 const renderField = ({ toggleProps, collapseProps, getUploadParams, handleChangeStatus, handleSubmit, download, moreInfo, input, label, type, meta: {touched, error } }) => {
 	return (
@@ -31,17 +41,24 @@ const renderField = ({ toggleProps, collapseProps, getUploadParams, handleChange
 			        </div>
 				}
 
-				<Dropzone
-					inputContent="Drag File or Click to Browse"
-					getUploadParams={getUploadParams}
-					onChangeStatus={handleChangeStatus}
-					onSubmit={handleSubmit}
-					styles={{ dropzone: { minHeight: 60, maxHeight: 250 } }}
-					// accept=".pdf,.doc,.docx,.rtf,.txt"
-					accept="image/*,.pdf,.doc,.docx,.rtf,.txt"
-					// "dropzone.invalid.error": "Invalid content",
-					
-				   />
+				<React.Fragment>
+				  <ToastContainer position="bottom-right" />
+				  <Dropzone
+				    getUploadParams={getUploadParams}
+				    onChangeStatus={handleChangeStatus}
+				    accept=".png,.jpg,.jpeg,.pdf,.doc,.docx,.rtf,.txt"
+				    maxFiles={1}
+				    multiple={false}
+				    canCancel={false}
+				    // inputContent="Drop A File"
+				    inputContent={CustomContent}
+				    styles={{
+				      dropzone: { width: 400, height: 200 },
+				      dropzoneActive: { borderColor: 'green' },
+				      dropzoneReject: { borderColor: 'red', backgroundColor: '#DAA' },
+				    }}
+				  />
+				</React.Fragment>
 		   </div>
 		</div>
 	)
