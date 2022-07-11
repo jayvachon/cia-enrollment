@@ -107,7 +107,7 @@ export default {
 					label: 'Financial Aid',
 					mondayLabel: 'FAFSA',
 					requiredDocuments: [
-						'essay', 'identification', 'diploma', 'picture'
+						'essay', 'identification', 'diploma', 'picture', 'ssc'
 					],
 				},
 				{
@@ -115,7 +115,7 @@ export default {
 					label: 'Self pay',
 					mondayLabel: 'None',
 					requiredDocuments: [
-						'essay', 'identification', 'diploma', 'picture'
+						'essay', 'identification', 'diploma', 'picture', 'ssc'
 					],
 				},
 			],

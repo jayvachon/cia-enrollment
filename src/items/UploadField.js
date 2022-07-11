@@ -7,7 +7,7 @@ import { ToastContainer, toast } from 'react-toastify'
 const CustomContent = () => {
 	return (
 		<div className="dropzone-text">
-			<p className="instruction">Drop A File</p>
+			<p className="instruction">Drop a File</p>
 			<p className="accepted-files">Accepted file types: .png, .jpg, .jpeg, .pdf, .doc, .docx, .rtf, .txt</p>
 		</div>
 		)
@@ -50,11 +50,10 @@ const renderField = ({ toggleProps, collapseProps, getUploadParams, handleChange
 				    maxFiles={1}
 				    multiple={false}
 				    canCancel={false}
-				    // inputContent="Drop A File"
 				    inputContent={CustomContent}
 				    styles={{
 				      dropzone: { width: 400, height: 200 },
-				      dropzoneActive: { borderColor: 'green' },
+				      dropzoneActive: { borderColor: 'blue' },
 				      dropzoneReject: { borderColor: 'red', backgroundColor: '#DAA' },
 				    }}
 				  />
