@@ -14,7 +14,7 @@ const validate = values => {
 }
 
 const onSubmit = async (values) => {
-	alert("Thank you, We have received your submission");
+	alert("Thank you. We have received your submission.");
 	console.log(values)
 	return await updateLead(id, values)
 }
