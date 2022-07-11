@@ -27,9 +27,14 @@ const Documents = props => {
 	id = props.lead.id
 
 	const studentType = _.find(Content.studentTypes, t => t.mondayLabel === props.lead.type)
-	const requiredDocuments = studentType.id === 'international'
+	let requiredDocuments = studentType.id === 'international'
 		? _.find(studentType.types, t => t.mondayLabel === props.lead.visa).requiredDocuments 
 		: _.find(studentType.types, t => t.mondayLabel === props.lead.financialAid).requiredDocuments
+
+	// Special case: essay is not required for media programs
+	if (props.lead.course !== 'Web Development Immersive Certificate' && props.lead.course !== 'Associate of Science in Computer Science and Web Architecture') {
+		requiredDocuments = requiredDocuments.filter(e => e !== 'essay')
+	}
 
 	return (
 		<section>
@@ -56,6 +61,5 @@ const Documents = props => {
 
 export default reduxForm({
 	form: 'documents',
-	// validate,
 	onSubmit,
 })(Documents)
